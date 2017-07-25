@@ -10,7 +10,7 @@ Extends weather to change based on season. Limited testing currently (seasons ta
 - Each season has different weather commonalities for each weather type
 - All biomes have weather adapted a bit to fit each season. More to come.
 - Most biomes are less clear now and I think Jungles in particular will go more in this direction.
-- Two new weather types are added Dust and Dry Duststorm
+- Four new weather types are added Dust, Dry Duststorm, Wildfire, and Earthquake
 - Growth rates are increased for plants by 20% during rainfall
 - Weather Drone has been added (maybe needs a better name). Weather can affect mood in rare cases (like a psychic drone).
 - Added Double Rainbow. Rarely after a weather event which contained rain, a double rainbow appears and improves moods.
