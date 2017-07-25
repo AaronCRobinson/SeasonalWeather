@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GameConditionDefs>
+
+  <GameConditionDef Class="SeasonalWeather.WeatherConditionDef">
+    <defName>DoubleRainbow</defName>
+    <conditionClass>SeasonalWeather.GameCondition_WeatherEmanation</conditionClass>
+    <label>double rainbow</label>
+    <description>A rare double rainbow has appeared.</description>
+    <weatherDroneLevel>GoodLow</weatherDroneLevel>
+    <endMessage>The double rainbow is over.</endMessage>
+  </GameConditionDef>
+
+</GameConditionDefs>

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeatherDefs>
+
+  <WeatherDef>
+    <defName>Dust</defName>
+    <label>dust</label>
+    <description>Dust reduces the accuracy of ranged weapons.</description>
+    <windSpeedFactor>0.75</windSpeedFactor>
+    <accuracyMultiplier>0.25</accuracyMultiplier>
+    <favorability>Neutral</favorability>
+    <ambientSounds>
+      <li>AmbientWind_Fog</li>
+    </ambientSounds>
+    <overlayClasses>
+      <li>SeasonalWeather.WeatherOverlay_DustCloud</li>
+      <li>SeasonalWeather.WeatherOverlay_DustParticles</li>
+    </overlayClasses>
+    <durationRange>
+      <min>15000</min>
+      <max>40000</max>
+    </durationRange>
+    <!-- Colors are Overcast -->
+    <skyColorsDay>
+      <sky>(0.8,0.8,0.8)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.7,0.62,0.5)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(1,1,1)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.52,0.4)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.5,0.42,0.3)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.4,0.32,0.2)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+
+  <WeatherDef>
+    <defName>DryDuststorm</defName>
+    <label>dry duststorm</label>
+    <description>Dry duststorms are dangerous because the lightning can start fires and there is no rain to put them out.</description>
+    <temperatureRange>
+      <min>0</min>
+      <max>999</max>
+    </temperatureRange>
+    <windSpeedFactor>1.5</windSpeedFactor>
+    <accuracyMultiplier>0.25</accuracyMultiplier>
+    <favorability>VeryBad</favorability>
+    <ambientSounds>
+      <li>AmbientWind_Storm</li>
+    </ambientSounds>
+    <overlayClasses>
+      <li>SeasonalWeather.WeatherOverlay_DustCloud</li>
+      <li>SeasonalWeather.WeatherOverlay_DustParticles</li>
+    </overlayClasses>  
+    <durationRange>
+      <min>15000</min>
+      <max>40000</max>
+    </durationRange>
+    <eventMakers>
+      <li>
+        <averageInterval>1200</averageInterval>
+        <eventClass>WeatherEvent_LightningFlash</eventClass>
+      </li>
+    </eventMakers>
+    <!-- Colors are Overcast -->
+    <skyColorsDay>
+      <sky>(0.8,0.8,0.8)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.7,0.62,0.5)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(1,1,1)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.52,0.4)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.5,0.42,0.3)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.4,0.32,0.2)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+
+  <WeatherDef>
+    <defName>Wildfire</defName>
+    <label>wildfire</label>
+    <!--<workerClass>SeasonalWeather.WeatherWorker_Wildfire</workerClass>-->
+    <description>This fire is wild... beware of inviting it to parties.</description>
+    <temperatureRange>
+      <min>0</min>
+      <max>999</max>
+    </temperatureRange>
+    <windSpeedFactor>0.5</windSpeedFactor>
+    <accuracyMultiplier>0.5</accuracyMultiplier>
+    <favorability>Neutral</favorability>
+    <ambientSounds>
+      <li>AmbientWind_Fog</li>
+    </ambientSounds>
+    <overlayClasses>
+      <li>SeasonalWeather.WeatherOverlay_DustCloud</li>
+    </overlayClasses>
+    <durationRange>
+      <min>15000000</min>
+      <max>40000000</max>
+    </durationRange>
+    <!-- Colors are Overcast -->
+    <skyColorsDay>
+      <sky>(0.8,0.8,0.8)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.7,0.62,0.5)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(1,1,1)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.52,0.4)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.5,0.42,0.3)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.4,0.32,0.2)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightMid>
+    <modExtensions>
+      <li Class="SeasonalWeather.WeatherWorkerExtension">
+        <workerClass>SeasonalWeather.WeatherWorker_Wildfire</workerClass>
+      </li>
+    </modExtensions>
+    <!--<modExtensions>
+      <li Class="SeasonalWeather.WeatherDefExtension">
+        <oneTimeEventMakers>
+          <li>
+            <averageInterval>1200</averageInterval>
+            <eventClass>SeasonalWeather.WeatherEvent_Wildfire</eventClass>
+          </li>
+        </oneTimeEventMakers>
+      </li>
+    </modExtensions>-->
+  </WeatherDef>
+
+  <!-- Earthquakes are not really seasonal (thus not really weather)... -->
+  <WeatherDef>
+    <defName>Earthquake</defName>
+    <label>earthquake</label>
+    <description>An earthquake. Do not stand under things.</description>
+    <favorability>VeryBad</favorability>
+    <ambientSounds>
+      <li>AmbientWind_Clear</li>
+    </ambientSounds>
+    <durationRange>
+      <min>10000</min>
+      <max>25000</max>
+    </durationRange>
+    <eventMakers>
+      <li>
+        <averageInterval>1200</averageInterval>
+        <eventClass>SeasonalWeather.WeatherEvent_Earthquake</eventClass>
+      </li>
+    </eventMakers>
+    <!-- Colors are Clear -->
+    <skyColorsDay>
+      <sky>(1,1,1)</sky>
+      <shadow>(0.718,0.745,0.757)</shadow>
+      <overlay>(1,1,1)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.858,0.650,0.423)</sky>
+      <shadow>(0.955,0.886,0.914)</shadow>
+      <overlay>(0.8,0.8,0.8)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.85, 0.85, 0.85)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+
+  <WeatherDef>
+    <defName>DoubleRainbow</defName>
+    <label>double rainbow</label>
+    <description>A double rainbow. The weather is soothing.</description>
+    <favorability>VeryGood</favorability>
+    <rainRate>0.01</rainRate>
+    <ambientSounds>
+      <li>AmbientWind_Clear</li>
+    </ambientSounds>   
+    <!-- Colors are Clear -->
+    <skyColorsDay>
+      <sky>(1,1,1)</sky>
+      <shadow>(0.718,0.745,0.757)</shadow>
+      <overlay>(1,1,1)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.858,0.650,0.423)</sky>
+      <shadow>(0.955,0.886,0.914)</shadow>
+      <overlay>(0.8,0.8,0.8)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.85, 0.85, 0.85)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsNightMid>
+    <modExtensions>
+      <li Class="SeasonalWeather.FollowsRainExtension">
+        <followsRain>true</followsRain>
+      </li>
+    </modExtensions>
+  </WeatherDef>
+
+  <WeatherDef>
+    <defName>skipweather</defName>
+    <label>skipweather</label>
+    <description>For testing only</description>
+    <repeatable>true</repeatable>
+    <favorability>Good</favorability>
+    <durationRange>
+      <min>100</min>
+      <max>100</max>
+    </durationRange>
+    <!-- Colors are Clear -->
+    <skyColorsDay>
+      <sky>(1,1,1)</sky>
+      <shadow>(0.718,0.745,0.757)</shadow>
+      <overlay>(1,1,1)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.858,0.650,0.423)</sky>
+      <shadow>(0.955,0.886,0.914)</shadow>
+      <overlay>(0.8,0.8,0.8)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.85, 0.85, 0.85)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.25</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+
+</WeatherDefs>
