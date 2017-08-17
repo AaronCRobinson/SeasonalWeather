@@ -1,12 +1,9 @@
-﻿using System;
-using Harmony;
-using RimWorld;
-using Verse;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Linq;
-using System.Xml;
+using Verse;
+using RimWorld;
+using Harmony;
 
 namespace SeasonalWeather
 {
@@ -15,7 +12,7 @@ namespace SeasonalWeather
         public bool followsRain = false;
     }
 
-    class WeatherHelper
+    class FollowsRainHelper
     {
         //check that all predicates are true...
         static public bool FollowsRain(Map map, WeatherDef weather)
@@ -48,7 +45,7 @@ namespace SeasonalWeather
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, typeof(WeatherManager).GetField("map"));
                     yield return new CodeInstruction(OpCodes.Ldarg_1);
-                    yield return new CodeInstruction(OpCodes.Call, typeof(WeatherHelper).GetMethod(nameof(WeatherHelper.FollowsRain)));
+                    yield return new CodeInstruction(OpCodes.Call, typeof(FollowsRainHelper).GetMethod(nameof(FollowsRainHelper.FollowsRain)));
                     Label @continue = il.DefineLabel();
                     yield return new CodeInstruction(OpCodes.Brtrue, @continue);
                     yield return new CodeInstruction(OpCodes.Ldc_R4, 0.0f);

@@ -18,6 +18,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Windy>6</Windy>
+          <Cloudy>6</Cloudy>
         </spring>
         <summer>
           <Clear>18</Clear>
@@ -33,6 +35,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.5</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>6</Cloudy>
+          <Windy>6</Windy>
         </summer>
         <fall>
           <Clear>18</Clear>
@@ -48,6 +52,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>6</Cloudy>
+          <Windy>6</Windy>
         </fall>
         <winter>
           <Clear>18</Clear>
@@ -62,6 +68,8 @@
           <DryDuststorm>0.25</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>6</Cloudy>
+          <Windy>6</Windy>
         </winter>
       </li>
     </value>
@@ -83,6 +91,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </spring>
         <summer>
           <Clear>18</Clear>
@@ -97,6 +107,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.5</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </summer>
         <fall>
           <Clear>18</Clear>
@@ -111,6 +123,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </fall>
         <winter>
           <Clear>18</Clear>
@@ -125,6 +139,8 @@
           <DryDuststorm>1</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </winter>
       </li>
     </value>
@@ -145,6 +161,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </spring>
         <summer>
           <Clear>18</Clear>
@@ -158,6 +176,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.5</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </summer>
         <fall>
           <Clear>18</Clear>
@@ -172,6 +192,8 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </fall>
         <winter>
           <Clear>18</Clear>
@@ -187,6 +209,8 @@
           <DryDuststorm>1</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
         </winter>
       </li>
     </value>
@@ -207,6 +231,9 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.01</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </spring>
         <summer>
           <Clear>18</Clear>
@@ -220,6 +247,9 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.05</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </summer>
         <fall>
           <Clear>18</Clear>
@@ -233,6 +263,9 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.01</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </fall>
         <winter>
           <Clear>18</Clear>
@@ -245,6 +278,9 @@
           <SnowHard>6</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </winter>
       </li>
     </value>
@@ -264,6 +300,9 @@
           <SnowHard>3</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </spring>
         <summer>
           <Clear>14</Clear>
@@ -276,6 +315,9 @@
           <SnowHard>1</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </summer>
         <fall>
           <Clear>12</Clear>
@@ -288,6 +330,9 @@
           <SnowHard>5</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </fall>
         <winter>
           <Clear>12</Clear>
@@ -300,6 +345,9 @@
           <SnowHard>6</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </winter>
       </li>
     </value>
@@ -317,6 +365,9 @@
           <SnowHard>40</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </spring>
         <summer>
           <Clear>12</Clear>
@@ -329,6 +380,9 @@
           <SnowHard>40</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </summer>
         <fall>
           <Clear>8</Clear>
@@ -339,6 +393,9 @@
           <SnowHard>40</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </fall>
         <winter>
           <Clear>4</Clear>
@@ -347,6 +404,9 @@
           <SnowHard>40</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </winter>
       </li>
     </value>
@@ -365,6 +425,9 @@
           <SnowHard>6</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </spring>
         <summer>
           <Clear>12</Clear>
@@ -377,6 +440,9 @@
           <SnowHard>2</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </summer>
         <fall>
           <Clear>12</Clear>
@@ -389,6 +455,9 @@
           <SnowHard>8</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </fall>
         <winter>
           <Clear>6</Clear>
@@ -397,6 +466,9 @@
           <SnowHard>12</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </winter>
       </li>
     </value>
@@ -417,6 +489,9 @@
           <Earthquake>0.1</Earthquake>
           <Wildfire>0.05</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </spring>
         <summer>
           <Clear>16</Clear>
@@ -430,6 +505,9 @@
           <Earthquake>0.1</Earthquake>
           <Wildfire>0.15</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </summer>
         <fall>
           <Clear>18</Clear>
@@ -443,6 +521,9 @@
           <Earthquake>0.1</Earthquake>
           <Wildfire>0.05</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </fall>
         <winter>
           <Clear>18</Clear>
@@ -455,6 +536,9 @@
           <SnowHard>1</SnowHard>
           <Earthquake>0.1</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </winter>
       </li>
     </value>
@@ -474,6 +558,9 @@
           <SnowHard>0.25</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </spring>
         <summer>
           <Clear>13</Clear>
@@ -487,6 +574,9 @@
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.01</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </summer>
         <fall>
           <Clear>8</Clear>
@@ -499,6 +589,9 @@
           <SnowHard>0.25</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </fall>
         <winter>
           <Clear>8</Clear>
@@ -511,6 +604,9 @@
           <SnowHard>0.25</SnowHard>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
         </winter>
       </li>
     </value>

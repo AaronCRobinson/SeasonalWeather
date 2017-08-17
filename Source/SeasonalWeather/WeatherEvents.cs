@@ -2,7 +2,6 @@
 using RimWorld;
 using Verse;
 using System.Collections.Generic;
-using Harmony;
 using Verse.Sound;
 
 // NOTE: go fetch the original Wildfire event...
@@ -148,14 +147,12 @@ namespace SeasonalWeather
                         if (compPower != null) // consider more specific fires for different types. (explosions for power plants)
                             FireUtility.TryStartFireIn(cell, this.map, 2.0f);
                     }
-                    thing.Destroy(DestroyMode.Vanish);
+                    b.Destroy(DestroyMode.Vanish);
                 }
                 else if (thing is Pawn) // TODO: consider doing pawns last to do variable types of damage based on what's in the cell...
                 {
-                    Pawn p = (Pawn)thing;
-
-                    if (roofCollapsed) HediffGiveUtility.TryApply(p, HediffDefOf.Shredded, null, true, 3, null);
-                    else HediffGiveUtility.TryApply(p, HediffDefOf.Shredded, null, true, 1, null);
+                    if (roofCollapsed) HediffGiveUtility.TryApply((Pawn)thing, HediffDefOf.Shredded, null, true, 3, null);
+                    else HediffGiveUtility.TryApply((Pawn)thing, HediffDefOf.Shredded, null, true, 1, null);
                 }
             }
             this.map.terrainGrid.RemoveTopLayer(cell, false);
@@ -176,7 +173,7 @@ namespace SeasonalWeather
                         if (GenGrid.InBounds(newCell, this.map) && GridsUtility.Roofed(newCell, this.map))
                             RoofCollapserImmediate.DropRoofInCells(newCell, this.map);
                     }
-                    catch (NullReferenceException e)
+                    catch (NullReferenceException)
                     {
                         Log.Warning($"NullReferenceException trying to drop roof: {newCell.x},0,{newCell.z}");
                     }

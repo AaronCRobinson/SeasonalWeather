@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <SettingsCategoryLabel>Seasonal Weather</SettingsCategoryLabel>
+  <EnableEarthquakesLabel>Enable earthquakes</EnableEarthquakesLabel>
+  <EnableWildfiresLabel>Enable wildfires</EnableWildfiresLabel>
+  <DynamicDefNote>NOTE: Currently, these settings are only triggered during the creation or load of map.</DynamicDefNote>
+
+</LanguageData>

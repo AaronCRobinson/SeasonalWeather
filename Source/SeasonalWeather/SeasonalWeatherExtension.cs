@@ -2,10 +2,6 @@
 using Harmony;
 using UnityEngine;
 using Verse;
-using System;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 
 // if (weather.favorability == Favorability.VeryGood && this.map.weatherManager.lastWeather.rainRate > 0.1f) => "Double Rainbow"
@@ -31,10 +27,10 @@ namespace SeasonalWeather
             harmony.Patch(AccessTools.Method(typeof(DateNotifier), nameof(DateNotifier.DateNotifierTick)), new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(DateNotifierTickPrefix)), null);
         }
 
-        static BindingFlags bf = BindingFlags.NonPublic | BindingFlags.Instance;
-        static string varName = "localWeather";
-        static Type anonType = typeof(Dialog_DebugActionsMenu).GetNestedTypes(BindingFlags.NonPublic).First(t => t.HasAttribute<CompilerGeneratedAttribute>() && t.GetField(varName, bf) != null);
-        static MethodInfo anonMethod = anonType.GetMethods(bf).First(); // assuming first for now...
+        //static BindingFlags bf = BindingFlags.NonPublic | BindingFlags.Instance;
+        //static string varName = "localWeather";
+        //static Type anonType = typeof(Dialog_DebugActionsMenu).GetNestedTypes(BindingFlags.NonPublic).First(t => t.HasAttribute<CompilerGeneratedAttribute>() && t.GetField(varName, bf) != null);
+        //static MethodInfo anonMethod = anonType.GetMethods(bf).First(); // assuming first for now...
 
         // TODO: convert this to a transpiler
         public static void DateNotifierTickPrefix(DateNotifier __instance)

@@ -7,6 +7,7 @@ using Verse;
 
 namespace SeasonalWeather
 {
+#if DEBUG
     [StaticConstructorOnStartup]
     static class WeatherDebugActionFix
     {
@@ -29,4 +30,5 @@ namespace SeasonalWeather
         }
 
     }
+#endif
 }

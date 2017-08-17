@@ -24,12 +24,15 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -51,7 +54,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WeatherDefOf.cs" />
+    <Compile Include="DynamicDefHelper.cs" />
+    <Compile Include="GameComponent.cs" />
+    <Compile Include="ModWindowHelper.cs" />
     <Compile Include="GrowthRate.cs" />
+    <Compile Include="ModSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonalWeatherExtension.cs" />
     <Compile Include="WeatherDebugActionFix.cs" />
@@ -66,9 +74,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y $(TargetDir)* "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Assemblies"
-xcopy /E /Y $(SolutionDir)..\About\* "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\About"
-xcopy /E /Y $(SolutionDir)..\Defs\* "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Defs"
-copy /Y $(SolutionDir)..\Patches\* "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Patches"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)*" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Assemblies\"
+xcopy /S /Y "$(SolutionDir)..\About\*" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\About\"
+xcopy /S /Y "$(SolutionDir)..\Defs\*" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Defs\"
+xcopy /Y "$(SolutionDir)..\Patches\*" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Patches\"
+xcopy /S /Y "$(SolutionDir)..\Languages\*" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Languages\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
