@@ -29,7 +29,7 @@ namespace SeasonalWeather
             settings = GetSettings<SeasonalWeatherSettings>();
         }
 
-        public override string SettingsCategory() => "SettingsCategoryLabel".Translate();
+        public override string SettingsCategory() => "SeasonalWeatherSettingsCategoryLabel".Translate();
 
         public override void DoSettingsWindowContents(Rect inRect)
         {

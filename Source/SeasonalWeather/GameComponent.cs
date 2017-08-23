@@ -8,6 +8,8 @@ namespace SeasonalWeather
 {
     class ApplyDynamicsFromSettings : GameComponent
     {
+        public ApplyDynamicsFromSettings() { }
+
         public ApplyDynamicsFromSettings(Game g) { }
 
         public override void FinalizeInit()

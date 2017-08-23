@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Windy.label>rüzgârlı</Windy.label>
+
+	<Cloudy.label>bulutlu</Cloudy.label>
+
+	<FogSnow.label>tipi</FogSnow.label>
+
+	<Dust.label>toz</Dust.label>
+
+	<DryDuststorm.label>kuru fırtına</DryDuststorm.label>
+	
+</LanguageData>

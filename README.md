@@ -17,13 +17,19 @@ Extends weather to change based on season. Please comment and let me know any fe
 - Intvention will shorten the length of this event
 - Min length if fire is surpressed is about half a day
 - Min length without intervention is 5 days
-- Max length a Quadrums
+- Max length a quadrum
 
 ## Notes
 
 If using NoFirewatcher, please make sure it is loaded before SeasonalWeather. (This should be fixed in a release or so)
 
 The wildfire event may cause performance issues but is still a rather rare occurence. Another mod is being developed to hopefully address fire performance issues. These are currently included in the NoFirewatcher mod.
+
+## Translations
+
+American - Me, because who needs English. I am never going to Endland...
+
+Turkish - Slevilex
 
 ## Acknowledgements
 

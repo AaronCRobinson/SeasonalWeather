@@ -8,7 +8,7 @@ using System.Reflection.Emit;
 using System.Linq;
 
 using RimworldWeatherWorker = Verse.WeatherWorker;
-
+    
 namespace SeasonalWeather
 {
     static class WeatherWorkerHelper
