@@ -10,7 +10,7 @@
     <ambientSounds>
       <li>AmbientWind_Storm</li>
     </ambientSounds>   
-    <windSpeedFactor>2.2</windSpeedFactor>
+    <windSpeedFactor>1e12</windSpeedFactor>
     <accuracyMultiplier>0.9</accuracyMultiplier>
     <!-- Colors are Clear -->
     <skyColorsDay>
