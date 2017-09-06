@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogUtility.cs" />
     <Compile Include="WeatherDefOf.cs" />
     <Compile Include="DynamicDefHelper.cs" />
     <Compile Include="GameComponent.cs" />

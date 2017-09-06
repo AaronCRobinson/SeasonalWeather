@@ -3,6 +3,7 @@ using Harmony;
 using UnityEngine;
 using Verse;
 using System.Collections.Generic;
+using System.Reflection;
 
 // if (weather.favorability == Favorability.VeryGood && this.map.weatherManager.lastWeather.rainRate > 0.1f) => "Double Rainbow"
 // map.gameConditionManager.RegisterCondition(gameCondition_PsychicEmanation); => like Psychic Soothe
@@ -27,41 +28,49 @@ namespace SeasonalWeather
             harmony.Patch(AccessTools.Method(typeof(DateNotifier), nameof(DateNotifier.DateNotifierTick)), new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(DateNotifierTickPrefix)), null);
         }
 
-        //static BindingFlags bf = BindingFlags.NonPublic | BindingFlags.Instance;
-        //static string varName = "localWeather";
-        //static Type anonType = typeof(Dialog_DebugActionsMenu).GetNestedTypes(BindingFlags.NonPublic).First(t => t.HasAttribute<CompilerGeneratedAttribute>() && t.GetField(varName, bf) != null);
-        //static MethodInfo anonMethod = anonType.GetMethods(bf).First(); // assuming first for now...
+        static private MethodInfo MI_FindPlayerHomeWithMinTimezone = AccessTools.Method(typeof(DateNotifier), "FindPlayerHomeWithMinTimezone");
+        static private FieldInfo FI_lastSeason = AccessTools.Field(typeof(DateNotifier), "lastSeason");
 
         // TODO: convert this to a transpiler
         public static void DateNotifierTickPrefix(DateNotifier __instance)
         {
-            Traverse t = Traverse.Create(__instance); // NOTE: rewrite this with manual reflection.
+            // NOTE: can map be null?
+            Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(__instance, new object[] { });
+            SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
 
-            // copy pasta (RimWorld.DateNotifier)
-            Map map = t.Method("FindPlayerHomeWithMinTimezone").GetValue<Map>();
-            float latitude = (map == null) ? 0f : Find.WorldGrid.LongLatOf(map.Tile).y;
-            float longitude = (map == null) ? 0f : Find.WorldGrid.LongLatOf(map.Tile).x;
-            Season season = GenDate.Season((long)Find.TickManager.TicksAbs, latitude, longitude);
-
-            Season lastSeason = t.Field("lastSeason").GetValue<Season>();
-            if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
+            if (ext != null)
             {
-                //Log.Message("SeasonalWeather: season change");
-                switch (season)
+                // copy pasta (RimWorld.DateNotifier)
+                float latitude = Find.WorldGrid.LongLatOf(map.Tile).y;
+                float longitude = Find.WorldGrid.LongLatOf(map.Tile).x;
+                Season season = GenDate.Season((long)Find.TickManager.TicksAbs, latitude, longitude);
+
+                Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
+                if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
                 {
-                    case Season.Spring:
-                        map.Biome.baseWeatherCommonalities = map.Biome.GetModExtension<SeasonalWeatherExtension>().spring;
-                        break;
-                    case Season.Summer:
-                        map.Biome.baseWeatherCommonalities = map.Biome.GetModExtension<SeasonalWeatherExtension>().summer;
-                        break;
-                    case Season.Fall:
-                        map.Biome.baseWeatherCommonalities = map.Biome.GetModExtension<SeasonalWeatherExtension>().fall;
-                        break;
-                    case Season.Winter:
-                        map.Biome.baseWeatherCommonalities = map.Biome.GetModExtension<SeasonalWeatherExtension>().winter;
-                        break;
+                    Log.Message("SeasonalWeather: season change");
+                    switch (season)
+                    {
+                        case Season.Spring:
+                            map.Biome.baseWeatherCommonalities = ext.spring;
+                            break;
+                        case Season.Summer:
+                            map.Biome.baseWeatherCommonalities = ext.summer;
+                            break;
+                        case Season.Fall:
+                            map.Biome.baseWeatherCommonalities = ext.fall;
+                            break;
+                        case Season.Winter:
+                            map.Biome.baseWeatherCommonalities = ext.winter;
+                            break;
+                    }
                 }
+
+            }
+            else
+            {
+                // NOTE: see how expensive this ends up being.
+                LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.",725491);
             }
 
         }
