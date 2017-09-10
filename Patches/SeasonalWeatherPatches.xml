@@ -65,7 +65,7 @@
           <SnowGentle>0.5</SnowGentle>
           <SnowHard>0.01</SnowHard>
           <Dust>1</Dust>
-          <DryDuststorm>0.5</DryDuststorm>
+          <DryDuststorm>x</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>6</Cloudy>
@@ -593,10 +593,8 @@
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
           <Cloudy>9</Cloudy>
-        </fall>
-        <summer>
           <Wildfire>0.01</Wildfire>
-        </summer>
+        </fall>
         <winter>
           <Clear>8</Clear>
           <Fog>2</Fog>
