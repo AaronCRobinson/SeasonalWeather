@@ -5,7 +5,7 @@
     <value>
       <li Class="SeasonalWeather.SeasonalWeatherExtension">
         <spring>
-          <Clear>18</Clear>
+          <Clear>20</Clear>
           <Fog>1</Fog>
           <Rain>1</Rain>
           <DryThunderstorm>1</DryThunderstorm>
@@ -22,7 +22,7 @@
           <Cloudy>6</Cloudy>
         </spring>
         <summer>
-          <Clear>18</Clear>
+          <Clear>20</Clear>
           <Fog>1</Fog>
           <Rain>2</Rain>
           <DryThunderstorm>1</DryThunderstorm>
@@ -39,7 +39,7 @@
           <Windy>6</Windy>
         </summer>
         <fall>
-          <Clear>18</Clear>
+          <Clear>20</Clear>
           <Fog>1</Fog>
           <Rain>1</Rain>
           <DryThunderstorm>1</DryThunderstorm>
@@ -56,7 +56,7 @@
           <Windy>6</Windy>
         </fall>
         <winter>
-          <Clear>18</Clear>
+          <Clear>20</Clear>
           <Fog>3</Fog>
           <Rain>1</Rain>
           <DryThunderstorm>1</DryThunderstorm>
@@ -65,7 +65,7 @@
           <SnowGentle>0.5</SnowGentle>
           <SnowHard>0.01</SnowHard>
           <Dust>1</Dust>
-          <DryDuststorm>0.25</DryDuststorm>
+          <DryDuststorm>0.5</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>6</Cloudy>
@@ -79,15 +79,15 @@
     <value>
       <li Class="SeasonalWeather.SeasonalWeatherExtension">
         <spring>
-          <Clear>18</Clear>
+          <Clear>22</Clear>
           <Rain>2</Rain>
           <DryThunderstorm>1</DryThunderstorm>
           <RainyThunderstorm>1</RainyThunderstorm>
           <FoggyRain>0.5</FoggyRain>
           <SnowGentle>0.5</SnowGentle>
           <SnowHard>0.01</SnowHard>
-          <Dust>3</Dust>
-          <DryDuststorm>1</DryDuststorm>
+          <Dust>4.5</Dust>
+          <DryDuststorm>2</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
@@ -95,23 +95,7 @@
           <Windy>8</Windy>
         </spring>
         <summer>
-          <Clear>18</Clear>
-          <Rain>2</Rain>
-          <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>0.5</FoggyRain>
-          <SnowGentle>0.5</SnowGentle>
-          <SnowHard>0.01</SnowHard>
-          <Dust>2</Dust>
-          <DryDuststorm>0.5</DryDuststorm>
-          <Earthquake>0.01</Earthquake>
-          <Wildfire>0.5</Wildfire>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <Cloudy>4</Cloudy>
-          <Windy>8</Windy>
-        </summer>
-        <fall>
-          <Clear>18</Clear>
+          <Clear>22</Clear>
           <Rain>2</Rain>
           <DryThunderstorm>1</DryThunderstorm>
           <RainyThunderstorm>1</RainyThunderstorm>
@@ -119,7 +103,23 @@
           <SnowGentle>0.5</SnowGentle>
           <SnowHard>0.01</SnowHard>
           <Dust>4</Dust>
-          <DryDuststorm>2</DryDuststorm>
+          <DryDuststorm>1.5</DryDuststorm>
+          <Earthquake>0.01</Earthquake>
+          <Wildfire>0.5</Wildfire>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <Cloudy>4</Cloudy>
+          <Windy>8</Windy>
+        </summer>
+        <fall>
+          <Clear>22</Clear>
+          <Rain>2</Rain>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>0.5</FoggyRain>
+          <SnowGentle>0.5</SnowGentle>
+          <SnowHard>0.01</SnowHard>
+          <Dust>7</Dust>
+          <DryDuststorm>3</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
@@ -127,7 +127,7 @@
           <Windy>8</Windy>
         </fall>
         <winter>
-          <Clear>18</Clear>
+          <Clear>22</Clear>
           <Fog>0.1</Fog>
           <Rain>2</Rain>
           <DryThunderstorm>1</DryThunderstorm>
@@ -135,7 +135,7 @@
           <FoggyRain>0.05</FoggyRain>
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
-          <Dust>2</Dust>
+          <Dust>3</Dust>
           <DryDuststorm>1</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
@@ -150,14 +150,14 @@
     <value>
       <li Class="SeasonalWeather.SeasonalWeatherExtension">
         <spring>
-          <Clear>18</Clear>
+          <Clear>25</Clear>
           <Rain>1</Rain>
           <DryThunderstorm>1</DryThunderstorm>
           <RainyThunderstorm>1</RainyThunderstorm>
           <SnowGentle>1.5</SnowGentle>
           <SnowHard>1</SnowHard>
-          <Dust>3</Dust>
-          <DryDuststorm>1</DryDuststorm>
+          <Dust>5</Dust>
+          <DryDuststorm>2</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
@@ -165,14 +165,14 @@
           <Windy>8</Windy>
         </spring>
         <summer>
-          <Clear>18</Clear>
+          <Clear>25</Clear>
           <Rain>4</Rain>
           <DryThunderstorm>1</DryThunderstorm>
           <RainyThunderstorm>3</RainyThunderstorm>
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
-          <Dust>2</Dust>
-          <DryDuststorm>1</DryDuststorm>
+          <Dust>6</Dust>
+          <DryDuststorm>3</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.5</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
@@ -180,15 +180,15 @@
           <Windy>8</Windy>
         </summer>
         <fall>
-          <Clear>18</Clear>
+          <Clear>25</Clear>
           <Rain>1</Rain>
           <DryThunderstorm>1</DryThunderstorm>
           <RainyThunderstorm>1</RainyThunderstorm>
           <FoggyRain>0.05</FoggyRain>
           <SnowGentle>1.5</SnowGentle>
           <SnowHard>1</SnowHard>
-          <Dust>4</Dust>
-          <DryDuststorm>2</DryDuststorm>
+          <Dust>8</Dust>
+          <DryDuststorm>4</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
@@ -196,7 +196,7 @@
           <Windy>8</Windy>
         </fall>
         <winter>
-          <Clear>18</Clear>
+          <Clear>25</Clear>
           <Fog>0.05</Fog>
           <FoggyRain>0.01</FoggyRain>
           <Rain>3</Rain>
@@ -205,8 +205,8 @@
           <FoggyRain>0.05</FoggyRain>
           <SnowGentle>2</SnowGentle>
           <SnowHard>1</SnowHard>
-          <Dust>2</Dust>
-          <DryDuststorm>1</DryDuststorm>
+          <Dust>4</Dust>
+          <DryDuststorm>2</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
@@ -487,7 +487,7 @@
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
           <Earthquake>0.1</Earthquake>
-          <Wildfire>0.05</Wildfire>
+          <Wildfire>0.15</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -503,7 +503,7 @@
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
           <Earthquake>0.1</Earthquake>
-          <Wildfire>0.15</Wildfire>
+          <Wildfire>0.3</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -519,7 +519,7 @@
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
           <Earthquake>0.1</Earthquake>
-          <Wildfire>0.05</Wildfire>
+          <Wildfire>0.15</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -561,6 +561,7 @@
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
           <Cloudy>9</Cloudy>
+          <Wildfire>0.01</Wildfire>
         </spring>
         <summer>
           <Clear>13</Clear>
@@ -572,7 +573,7 @@
           <SnowGentle>0.25</SnowGentle>
           <SnowHard>0.25</SnowHard>
           <Earthquake>0.01</Earthquake>
-          <Wildfire>0.01</Wildfire>
+          <Wildfire>0.03</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -593,6 +594,9 @@
           <Windy>6</Windy>
           <Cloudy>9</Cloudy>
         </fall>
+        <summer>
+          <Wildfire>0.01</Wildfire>
+        </summer>
         <winter>
           <Clear>8</Clear>
           <Fog>2</Fog>
