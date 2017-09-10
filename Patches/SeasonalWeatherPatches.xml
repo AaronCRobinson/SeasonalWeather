@@ -65,7 +65,7 @@
           <SnowGentle>0.5</SnowGentle>
           <SnowHard>0.01</SnowHard>
           <Dust>1</Dust>
-          <DryDuststorm>x</DryDuststorm>
+          <DryDuststorm>0.5</DryDuststorm>
           <Earthquake>0.01</Earthquake>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>6</Cloudy>
