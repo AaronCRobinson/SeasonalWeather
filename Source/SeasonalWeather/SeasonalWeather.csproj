@@ -67,6 +67,7 @@
     <Compile Include="CustomWeatherWorkerPatches.cs" />
     <Compile Include="WeatherEvents.cs" />
     <Compile Include="FollowsRainExtension.cs" />
+    <Compile Include="WeatherOverlays.cs" />
     <Compile Include="WeatherSoothe.cs" />
     <Compile Include="WeatherWorkers.cs" />
   </ItemGroup>

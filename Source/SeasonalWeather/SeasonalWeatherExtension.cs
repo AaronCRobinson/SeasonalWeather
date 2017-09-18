@@ -16,98 +16,124 @@ namespace SeasonalWeather
         public List<WeatherCommonalityRecord> summer = new List<WeatherCommonalityRecord>();
         public List<WeatherCommonalityRecord> fall = new List<WeatherCommonalityRecord>();
         public List<WeatherCommonalityRecord> winter = new List<WeatherCommonalityRecord>();
+
+        public void AdjustBaseWeatherCommonalities(Map map, Season season)
+        {
+            Log.Message("SeasonalWeather: adjusting baseWeatherCommonalities");
+            switch (season)
+            {
+                case Season.Spring:
+                    map.Biome.baseWeatherCommonalities = this.spring;
+                    break;
+                case Season.Summer:
+                    map.Biome.baseWeatherCommonalities = this.summer;
+                    break;
+                case Season.Fall:
+                    map.Biome.baseWeatherCommonalities = this.fall;
+                    break;
+                case Season.Winter:
+                    map.Biome.baseWeatherCommonalities = this.winter;
+                    break;
+            }
+        }
     }
 
     [StaticConstructorOnStartup]
     class SeasonalWeatherExtensionPatches
     {
+        private const int TickerTypeLong = 2000;
+
+        private static MethodInfo MI_FindPlayerHomeWithMinTimezone = AccessTools.Method(typeof(DateNotifier), "FindPlayerHomeWithMinTimezone");
+        private static FieldInfo FI_lastSeason = AccessTools.Field(typeof(DateNotifier), "lastSeason");
+
         static SeasonalWeatherExtensionPatches()
         {
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.whyisthat.seasonalweather.seasonalweatherextension");
 
+            harmony.Patch(AccessTools.Method(typeof(Game), nameof(Game.FinalizeInit)), null, new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(FinalizeInitPostfix)));
             harmony.Patch(AccessTools.Method(typeof(DateNotifier), nameof(DateNotifier.DateNotifierTick)), new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(DateNotifierTickPrefix)), null);
         }
 
-        static private MethodInfo MI_FindPlayerHomeWithMinTimezone = AccessTools.Method(typeof(DateNotifier), "FindPlayerHomeWithMinTimezone");
-        static private FieldInfo FI_lastSeason = AccessTools.Field(typeof(DateNotifier), "lastSeason");
-
-        // TODO: convert this to a transpiler
-        public static void DateNotifierTickPrefix(DateNotifier __instance)
+        // NOTE: looks like room for further abstraction here...
+        public static void FinalizeInitPostfix()
         {
-            // NOTE: can map be null?
-            Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(__instance, new object[] { });
+            Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(Find.DateNotifier, new object[] { });
             SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
-
+            
             if (ext != null)
             {
-                // copy pasta (RimWorld.DateNotifier)
-                float latitude = Find.WorldGrid.LongLatOf(map.Tile).y;
-                float longitude = Find.WorldGrid.LongLatOf(map.Tile).x;
-                Season season = GenDate.Season((long)Find.TickManager.TicksAbs, latitude, longitude);
-
-                Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
-                if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
-                {
-                    Log.Message("SeasonalWeather: season change");
-                    switch (season)
-                    {
-                        case Season.Spring:
-                            map.Biome.baseWeatherCommonalities = ext.spring;
-                            break;
-                        case Season.Summer:
-                            map.Biome.baseWeatherCommonalities = ext.summer;
-                            break;
-                        case Season.Fall:
-                            map.Biome.baseWeatherCommonalities = ext.fall;
-                            break;
-                        case Season.Winter:
-                            map.Biome.baseWeatherCommonalities = ext.winter;
-                            break;
-                    }
-                }
-
+                Season season = map.GetSeason();
+                ext.AdjustBaseWeatherCommonalities(map, season);
             }
             else
             {
-                // NOTE: see how expensive this ends up being.
-                LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.",725491);
+                LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.", 725491);
+            }
+
+        }
+
+        public static void DateNotifierTickPrefix(DateNotifier __instance)
+        {
+
+            if (__instance.IsHashIntervalTick(TickerTypeLong))
+            {
+                Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(__instance, new object[] { });
+                SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
+
+                if (ext != null)
+                {
+                    Season season = map.GetSeason();
+                    Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
+                    if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
+                    {
+                        Log.Message("SeasonalWeather: season changed");
+                        ext.AdjustBaseWeatherCommonalities(map, season);
+                    }
+                }
+                else
+                {
+                    LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.", 725491);
+                }
             }
 
         }
     }
 
-    [StaticConstructorOnStartup]
-    public class WeatherOverlay_DustCloud : SkyOverlay
+    public static class SeasonHelper
     {
-        private static readonly Material DustCloudOverlay = MatLoader.LoadMat("Weather/FogOverlayWorld", -1);
-
-        public WeatherOverlay_DustCloud()
+        public static Season GetSeason(this Map map)
         {
-            this.worldOverlayMat = DustCloudOverlay;
-            this.worldOverlayPanSpeed1 = 0.008f;
-            this.worldPanDir1 = new Vector2(-1f, -0.26f); //new Vector2(1f, 1f);
-            this.worldPanDir1.Normalize();
-            this.worldOverlayPanSpeed2 = 0.012f;
-            this.worldPanDir2 = new Vector2(-1f, -0.24f); //new Vector2(1f, -1f);
-            this.worldPanDir2.Normalize();
+            float latitude = Find.WorldGrid.LongLatOf(map.Tile).y;
+            float longitude = Find.WorldGrid.LongLatOf(map.Tile).x;
+            return GenDate.Season((long)Find.TickManager.TicksAbs, latitude, longitude);
         }
     }
 
-    [StaticConstructorOnStartup]
-    public class WeatherOverlay_DustParticles : SkyOverlay
+    public static class DateNotifierHashTickHelper
     {
-        private static readonly Material DustParticlesOverlay = MatLoader.LoadMat("Weather/SnowOverlayWorld", -1);
+        private static bool inited;
+        private static int hashCode;
 
-        public WeatherOverlay_DustParticles()
+        public static bool IsHashIntervalTick(this DateNotifier dn, int interval)
         {
-            this.worldOverlayMat = DustParticlesOverlay;
-            this.worldOverlayPanSpeed1 = 0.018f;
-            this.worldPanDir1 = new Vector2(-1f, -0.26f); //new Vector2(1f, 1f);
-            this.worldPanDir1.Normalize();
-            this.worldOverlayPanSpeed2 = 0.022f;
-            this.worldPanDir2 = new Vector2(-1f, -0.24f); //new Vector2(1f, -1f);
-            this.worldPanDir2.Normalize();
+            return dn.HashOffsetTicks() % interval == 0;
         }
+
+        public static int HashOffsetTicks(this DateNotifier dn)
+        {
+            return Find.TickManager.TicksGame + dn.HashCode().HashOffset();
+        }
+
+        public static int HashCode(this DateNotifier dn)
+        {
+            if (!inited)
+            {
+                hashCode = dn.GetHashCode();
+                inited = true;
+            }
+            return hashCode;
+        }
+
     }
 
 }

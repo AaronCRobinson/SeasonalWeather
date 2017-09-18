@@ -6,70 +6,64 @@
       <li Class="SeasonalWeather.SeasonalWeatherExtension">
         <spring>
           <Clear>20</Clear>
-          <Fog>1</Fog>
+          <Fog>2</Fog>
           <Rain>1</Rain>
+          <RainyThunderstorm>0.5</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <DoubleRainbow>0.5</DoubleRainbow>
           <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>0.5</FoggyRain>
-          <SnowGentle>0.5</SnowGentle>
-          <SnowHard>0.01</SnowHard>
           <Dust>3</Dust>
           <DryDuststorm>0.5</DryDuststorm>
+          <Cloudy>3</Cloudy>
+          <Windy>1</Windy>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <Windy>6</Windy>
-          <Cloudy>6</Cloudy>
         </spring>
         <summer>
           <Clear>20</Clear>
-          <Fog>1</Fog>
-          <Rain>2</Rain>
+          <Fog>2</Fog>
+          <Rain>1</Rain>
+          <RainyThunderstorm>0.5</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <DoubleRainbow>0.1</DoubleRainbow>
           <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>0.5</FoggyRain>
-          <SnowGentle>0.5</SnowGentle>
-          <SnowHard>0.01</SnowHard>
           <Dust>2</Dust>
           <DryDuststorm>0.5</DryDuststorm>
+          <Cloudy>2</Cloudy>
+          <Windy>2</Windy>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.5</Wildfire>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <Cloudy>6</Cloudy>
-          <Windy>6</Windy>
         </summer>
         <fall>
           <Clear>20</Clear>
-          <Fog>1</Fog>
+          <Fog>2</Fog>
           <Rain>1</Rain>
+          <RainyThunderstorm>0.5</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <DoubleRainbow>0.25</DoubleRainbow>
           <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>0.5</FoggyRain>
-          <SnowGentle>0.5</SnowGentle>
-          <SnowHard>0.01</SnowHard>
           <Dust>2</Dust>
           <DryDuststorm>1</DryDuststorm>
+          <Cloudy>5</Cloudy>
+          <Windy>5</Windy>
           <Earthquake>0.01</Earthquake>
           <Wildfire>0.25</Wildfire>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <Cloudy>6</Cloudy>
-          <Windy>6</Windy>
         </fall>
         <winter>
           <Clear>20</Clear>
           <Fog>3</Fog>
           <Rain>1</Rain>
+          <RainyThunderstorm>0.5</RainyThunderstorm>
+          <FoggyRain>2</FoggyRain>
+          <DoubleRainbow>0.25</DoubleRainbow>
           <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>1.5</FoggyRain>
-          <SnowGentle>0.5</SnowGentle>
-          <SnowHard>0.01</SnowHard>
           <Dust>1</Dust>
           <DryDuststorm>0.5</DryDuststorm>
-          <Earthquake>0.01</Earthquake>
-          <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>6</Cloudy>
-          <Windy>6</Windy>
+          <Windy>3</Windy>
+          <Earthquake>0.01</Earthquake>
+          <SnowGentle>1</SnowGentle>
+          <SnowHard>1</SnowHard>
         </winter>
       </li>
     </value>

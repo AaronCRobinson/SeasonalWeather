@@ -10,7 +10,7 @@
     <ambientSounds>
       <li>AmbientWind_Storm</li>
     </ambientSounds>   
-    <windSpeedFactor>1e12</windSpeedFactor>
+    <windSpeedFactor>1e12</windSpeedFactor><!--This forces windy-->
     <accuracyMultiplier>0.9</accuracyMultiplier>
     <!-- Colors are Clear -->
     <skyColorsDay>
@@ -134,7 +134,7 @@
     <defName>Dust</defName>
     <label>dust</label>
     <description>Dust reduces the accuracy of ranged weapons.</description>
-    <windSpeedFactor>0.75</windSpeedFactor>
+    <windSpeedFactor>1</windSpeedFactor>
     <accuracyMultiplier>0.25</accuracyMultiplier>
     <favorability>Neutral</favorability>
     <ambientSounds>
@@ -183,7 +183,7 @@
       <min>0</min>
       <max>999</max>
     </temperatureRange>
-    <windSpeedFactor>1.5</windSpeedFactor>
+    <windSpeedFactor>2</windSpeedFactor>
     <accuracyMultiplier>0.25</accuracyMultiplier>
     <favorability>VeryBad</favorability>
     <ambientSounds>
@@ -239,7 +239,6 @@
       <min>10</min>
       <max>999</max>
     </temperatureRange>
-    <windSpeedFactor>0.5</windSpeedFactor>
     <accuracyMultiplier>0.65</accuracyMultiplier>
     <favorability>Neutral</favorability>
     <ambientSounds>
