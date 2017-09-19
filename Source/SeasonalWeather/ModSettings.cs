@@ -1,5 +1,6 @@
 ﻿using Verse;
 using UnityEngine;
+using ModSettingsHelper;
 
 namespace SeasonalWeather
 {

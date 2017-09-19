@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenHelper.cs" />
     <Compile Include="LogUtility.cs" />
     <Compile Include="WeatherDefOf.cs" />
     <Compile Include="DynamicDefHelper.cs" />
@@ -70,9 +71,6 @@
     <Compile Include="WeatherOverlays.cs" />
     <Compile Include="WeatherSoothe.cs" />
     <Compile Include="WeatherWorkers.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

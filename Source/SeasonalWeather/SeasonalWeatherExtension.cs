@@ -50,12 +50,11 @@ namespace SeasonalWeather
         {
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.whyisthat.seasonalweather.seasonalweatherextension");
 
-            harmony.Patch(AccessTools.Method(typeof(Game), nameof(Game.FinalizeInit)), null, new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(FinalizeInitPostfix)));
             harmony.Patch(AccessTools.Method(typeof(DateNotifier), nameof(DateNotifier.DateNotifierTick)), new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(DateNotifierTickPrefix)), null);
         }
 
-        // NOTE: looks like room for further abstraction here...
-        public static void FinalizeInitPostfix()
+        // NOTE: should this be somewhere else?
+        public static void FinalizeInit()
         {
             Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(Find.DateNotifier, new object[] { });
             SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
@@ -107,33 +106,6 @@ namespace SeasonalWeather
             float longitude = Find.WorldGrid.LongLatOf(map.Tile).x;
             return GenDate.Season((long)Find.TickManager.TicksAbs, latitude, longitude);
         }
-    }
-
-    public static class DateNotifierHashTickHelper
-    {
-        private static bool inited;
-        private static int hashCode;
-
-        public static bool IsHashIntervalTick(this DateNotifier dn, int interval)
-        {
-            return dn.HashOffsetTicks() % interval == 0;
-        }
-
-        public static int HashOffsetTicks(this DateNotifier dn)
-        {
-            return Find.TickManager.TicksGame + dn.HashCode().HashOffset();
-        }
-
-        public static int HashCode(this DateNotifier dn)
-        {
-            if (!inited)
-            {
-                hashCode = dn.GetHashCode();
-                inited = true;
-            }
-            return hashCode;
-        }
-
     }
 
 }

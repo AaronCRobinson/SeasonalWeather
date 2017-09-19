@@ -90,17 +90,4 @@ namespace SeasonalWeather
         }
     }
 
-    static class GenHelper
-    {
-        public static int HashOffsetTicks(this WeatherWorker w)
-        {
-            return Find.TickManager.TicksGame + w.GetHashCode().HashOffset();
-        }
-
-        public static bool IsHashIntervalTick(this WeatherWorker w, int interval)
-        {
-            return w.HashOffsetTicks() % interval == 0;
-        }
-    }
-
 }
