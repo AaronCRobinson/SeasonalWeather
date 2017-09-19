@@ -72,7 +72,7 @@ namespace SeasonalWeather
         {
             base._WeatherTick(map, lerpFactor);
 
-            if ( GenHelper.IsHashIntervalTick(this, hashInterval))
+            if ( this.IsHashIntervalTick(hashInterval))
             {
                 if (this.Spawning)
                 {
