@@ -1,4 +1,4 @@
-# SeasonalWeather [![RimWorld Alpha 17](https://img.shields.io/badge/RimWorld-Alpha%2017-brightgreen.svg)](http://rimworldgame.com/) 
+# SeasonalWeather [![RimWorld Alpha 17](https://img.shields.io/badge/RimWorld-Alpha%2017-brightgreen.svg)](http://rimworldgame.com/)
 
 Extends weather to change based on season. Please comment and let me know any feedback about seasonal settings or potential related features.
 
@@ -6,7 +6,7 @@ Extends weather to change based on season. Please comment and let me know any fe
 - Each season has different weather commonalities for each weather type
 - All biomes have weather adapted a bit to fit each season. More to come.
 - Most biomes are less clear now and I think Jungles in particular will go more in this direction.
-- New weather types are added: Dust, Dry Duststorm, Foggy Snow, Cloudy, and Windy 
+- New weather types are added: Dust, Dry Duststorm, Foggy Snow, Cloudy, and Windy
 - New weather disasters are added: Wildfire, and Earthquake
 - Disasters can be disabled/enabled in mod settings
 - Growth rates are increased for plants by 20% during rainfall
@@ -20,16 +20,11 @@ Extends weather to change based on season. Please comment and let me know any fe
 - Max length a quadrum
 
 ## Notes
-
-If using NoFirewatcher, please make sure it is loaded before SeasonalWeather. (This should be fixed in a release or so)
-
-The wildfire event may cause performance issues but is still a rather rare occurence. Another mod is being developed to hopefully address fire performance issues. These are currently included in the NoFirewatcher mod.
+The wildfire event may cause performance issues. [NoFirewatcher](https://github.com/AaronCRobinson/NoFirewatcher) and [ImprovedFirePerformance](https://github.com/AaronCRobinson/ImprovedFirePerformance) both address fire performance issues.
 
 ## Translations
-
-American - Me, because who needs English. I am never going to Endland...
-
-Turkish - Slevilex
+- English
+- Turkish (by Slevilex)
 
 ## Acknowledgements
 
@@ -48,4 +43,4 @@ Special thanks to Pardeike's amazing non-destructive patching library, Harmony.
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-lightgray.svg?style=flat" alt="MIT License" />
   </a>
-</p> 
+</p>
