@@ -9,7 +9,7 @@
     <favorability>Neutral</favorability>
     <ambientSounds>
       <li>AmbientWind_Storm</li>
-    </ambientSounds>   
+    </ambientSounds>
     <windSpeedFactor>1e12</windSpeedFactor><!--This forces windy-->
     <accuracyMultiplier>0.9</accuracyMultiplier>
     <!-- Colors are Clear -->
@@ -47,7 +47,7 @@
     <favorability>Good</favorability>
     <ambientSounds>
       <li>AmbientWind_Clear</li>
-    </ambientSounds>   
+    </ambientSounds>
     <!-- Colors are Overcast -->
      <skyColorsDay>
       <sky>(0.8,0.8,0.8)</sky>
@@ -192,7 +192,7 @@
     <overlayClasses>
       <li>SeasonalWeather.WeatherOverlay_DustCloud</li>
       <li>SeasonalWeather.WeatherOverlay_DustParticles</li>
-    </overlayClasses>  
+    </overlayClasses>
     <durationRange>
       <min>15000</min>
       <max>40000</max>
@@ -284,7 +284,7 @@
   </WeatherDef>
 
   <!-- Earthquakes are not really seasonal (thus not really weather)... -->
-  <WeatherDef>
+  <!--<WeatherDef>
     <defName>Earthquake</defName>
     <label>earthquake</label>
     <description>An earthquake. Do not stand under things.</description>
@@ -302,7 +302,6 @@
         <eventClass>SeasonalWeather.WeatherEvent_Earthquake</eventClass>
       </li>
     </eventMakers>
-    <!-- Colors are Clear -->
     <skyColorsDay>
       <sky>(1,1,1)</sky>
       <shadow>(0.718,0.745,0.757)</shadow>
@@ -327,7 +326,7 @@
       <overlay>(0.6,0.6,0.6)</overlay>
       <saturation>1.25</saturation>
     </skyColorsNightMid>
-  </WeatherDef>
+  </WeatherDef>-->
 
   <WeatherDef>
     <defName>DoubleRainbow</defName>
@@ -337,7 +336,7 @@
     <rainRate>0.01</rainRate>
     <ambientSounds>
       <li>AmbientWind_Clear</li>
-    </ambientSounds>   
+    </ambientSounds>
     <!-- Colors are Clear -->
     <skyColorsDay>
       <sky>(1,1,1)</sky>

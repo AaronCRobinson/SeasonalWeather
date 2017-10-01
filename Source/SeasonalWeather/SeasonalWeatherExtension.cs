@@ -1,9 +1,8 @@
-﻿using RimWorld;
-using Harmony;
-using UnityEngine;
-using Verse;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
+using Verse;
+using RimWorld;
+using Harmony;
 
 // if (weather.favorability == Favorability.VeryGood && this.map.weatherManager.lastWeather.rainRate > 0.1f) => "Double Rainbow"
 // map.gameConditionManager.RegisterCondition(gameCondition_PsychicEmanation); => like Psychic Soothe

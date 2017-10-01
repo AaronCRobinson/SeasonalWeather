@@ -54,9 +54,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Earthquake.cs" />
+    <Compile Include="GameConditions.cs" />
     <Compile Include="GenHelper.cs" />
+    <Compile Include="IncidentWorkers.cs" />
     <Compile Include="LogUtility.cs" />
-    <Compile Include="WeatherDefOf.cs" />
+    <Compile Include="DefOf.cs" />
     <Compile Include="DynamicDefHelper.cs" />
     <Compile Include="GameComponent.cs" />
     <Compile Include="ModWindowHelper.cs" />

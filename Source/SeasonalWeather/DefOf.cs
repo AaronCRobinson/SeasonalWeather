@@ -8,4 +8,10 @@ namespace SeasonalWeather
     {
         public static WeatherDef Wildfire;
     }
+
+    [DefOf]
+    public static class GameConditionDefOf
+    {
+        public static GameConditionDef Earthquake;
+    }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Verse;
 using System.Reflection;
 using Harmony;
@@ -16,10 +13,7 @@ namespace SeasonalWeather
         // Verse.Log
         public static void MessageOnce(string text, int key)
         {
-            if (LogUtility.usedKeys.Contains(key))
-            {
-                return;
-            }
+            if (LogUtility.usedKeys.Contains(key)) return;
             LogUtility.usedKeys.Add(key);
             Log.Message(text);
         }

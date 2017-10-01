@@ -1,126 +1,88 @@
 ﻿using System;
-using RimWorld;
-using Verse;
 using System.Collections.Generic;
+using UnityEngine;
+using Verse;
 using Verse.Sound;
-
-// NOTE: go fetch the original Wildfire event...
+using RimWorld;
 
 namespace SeasonalWeather
 {
-    // consider static method to generate shapes... should be faster
-    public class WeatherEvent_Earthquake : WeatherEvent
+    public class WeatherEvent_Tremor : WeatherEvent
     {
-        private Rot4 direction, curDirection;
-        private List<IntVec3> path;
+        static float noise;
 
-        public WeatherEvent_Earthquake(Map map) : base(map)
+        private float time; // avoiding int to save from casting
+        private float magnitude;
+        private float xScale = 2.0f;
+        private IntVec3 curPos;
+        private Rot4 direction;
+        private bool expired = false;
+
+        public WeatherEvent_Tremor(Map map) : this(map, 1.0f) { }
+
+        public WeatherEvent_Tremor(Map map, float magnitude) : base(map)
         {
             this.map = map;
-            this.path = this.CreatePath();
-        }
-
-        private List<IntVec3> CreatePath()
-        {
-            IntVec3 start, curCell, offset;
-            List<IntVec3> path = new List<IntVec3>();
-            bool breaking = false;
-
-            this.curDirection = this.direction = Rot4.Random;
-            curCell = start = CellFinder.RandomCell(this.map);
-            path.Add(start);
-
-            int edges = Rand.Range(3, 7);
-            for (int i = 0; i < edges; i++) // edges
-            {
-                offset = this.Offset(this.curDirection);
-                for (int j = 0; j < Rand.Range(11, 19); j++) // edge length
-                {
-                    curCell += offset;
-                    if(GenGrid.InBounds(curCell, this.map))
-                        path.Add(curCell);
-                    else
-                    {
-                        breaking = true;
-                        break;
-                    }
-                    if (Rand.Range(0f, 1f) > 0.85f) // radical
-                    {
-                        IntVec3 radicalCell = curCell + this.GetRadicalOffset();
-                        if (GenGrid.InBounds(radicalCell, this.map))
-                            path.Add(radicalCell);
-                    }
-                }
-                if (breaking || i == edges-1) break; // no need for jagged part on end.
-                this.curDirection.Rotate(this.GetRandomRotationDirection());
-                offset = this.Offset(this.curDirection);
-                for (int j = 0; j < Rand.Range(1, 3); j++) // jagged part (consider weights?)
-                {
-                    curCell += offset;
-                    if (GenGrid.InBounds(curCell, this.map))
-                        path.Add(curCell);
-                    else
-                    {
-                        breaking = true;
-                        break;
-                    }
-                }
-                if (breaking) break;
-
-                this.curDirection = this.direction;
-            }
-            return path;
-        }
-
-        private IntVec3 Offset(Rot4 direction)
-        {
-            IntVec3 offset = new IntVec3();
-            if (direction == Rot4.North)
-                offset.z = 1;
-            else if (direction == Rot4.South)
-                offset.z = -1;
-            else if (direction == Rot4.East)
-                offset.x = 1;
-            else if (direction == Rot4.West)
-                offset.x = -1;
-            return offset;
-        }
-
-        private IntVec3 GetRadicalOffset()
-        {
-            IntVec3 cell = new IntVec3();
-            if (this.direction.IsHorizontal)
-            {
-                if (Rand.Range(0, 2) == 1) cell.z = 1;
-                else cell.z = -1;
-            }
-            else
-            {
-                if (Rand.Range(0, 2) == 1) cell.x = 1;
-                else cell.x = -1;
-            }
-            return cell;
-        }
-
-        private RotationDirection GetRandomRotationDirection(bool allowNone = true)
-        {
-            return (RotationDirection)Enum.GetValues(typeof(RotationDirection)).GetValue(Rand.Range(1, 3));
+            this.magnitude = magnitude;
+            this.xScale *= this.magnitude;
+            this.curPos = CellFinder.RandomCell(this.map);
+            this.direction = Rot4.Random;
+            this.time = Find.TickManager.TicksGame;
         }
 
         public override bool Expired
         {
-            get
-            {
-                return this.path.Count == 0;
-            }
+            get { return this.expired; }
         }
 
+        public float MinLoopNoiseThreshold
+        {
+            get { return this.magnitude * 0.25f; }
+        }
+
+        public float ExpireNoiseThreshold
+        {
+            get { return this.magnitude * 0.1f; }
+        }
+
+        // NOTE: sure what should go here yet.
         public override void FireEvent()
         {
-            this.CreateFaultCell(this.path[0]);
-            this.path.RemoveAt(0);
-            Find.CameraDriver.shaker.DoShake(Rand.Range(2f, 5f));
+            Find.CameraDriver.shaker.DoShake(this.magnitude);
             SoundDefOf.Thunder_OffMap.PlayOneShotOnCamera(this.map);
+        }
+
+        public override void WeatherEventTick()
+        {
+            do
+            {
+                this.CreateFaultCell(this.curPos);
+                this.TremorWalk();
+                if (!this.curPos.InBounds(this.map))
+                {
+                    expired = true;
+                    return;
+                }
+                GetNoise(out noise);
+            } while (noise > this.MinLoopNoiseThreshold);
+
+            if (noise < this.ExpireNoiseThreshold) this.expired = true;
+        }
+
+        private void GetNoise(out float noise)
+        {
+            noise = Mathf.PerlinNoise(this.time, 0.0f);
+            this.time += this.xScale;
+        }
+
+        public void TremorWalk()
+        {
+            GetNoise(out float noise);
+            if (noise < 0.25f)
+                this.direction.Rotate(RotationDirection.Clockwise);
+            else if (noise < 0.5f)
+                this.direction.Rotate(RotationDirection.Clockwise);
+            this.curPos += this.direction.FacingCell;
         }
 
         private void CreateFaultCell(IntVec3 cell)
@@ -181,37 +143,6 @@ namespace SeasonalWeather
             }
         }
 
-        public override void WeatherEventTick()
-        {
-            for (int i = 0; i < Rand.Range(0,4); i++)
-            {
-                this.CreateFaultCell(this.path[0]);
-                this.path.RemoveAt(0);
-                Find.CameraDriver.shaker.DoShake(Rand.Range(2f, 5f));
-                SoundDefOf.Thunder_OffMap.PlayOneShotOnCamera(this.map);
-                if (this.path.Count == 0) break;
-            } 
-        }
-    }
-
-
-    public class OneTimeWeatherEventMaker
-    {
-        public bool triggered = false;
-
-        public float averageInterval = 100f;
-
-        public Type eventClass;
-
-        public void WeatherEventMakerTick(Map map, float strength)
-        {
-            if (!this.triggered && Rand.Value < 1f / this.averageInterval * strength)
-            {
-                WeatherEvent newEvent = (WeatherEvent)Activator.CreateInstance(this.eventClass, new object[] { map });
-                map.weatherManager.eventHandler.AddEvent(newEvent);
-                this.triggered = true;
-            }
-        }
     }
 
 }

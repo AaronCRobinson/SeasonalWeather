@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!--========================== Bad ===============================-->
+
+    <IncidentDef>
+        <defName>Earthquake</defName>
+        <label>earthquake</label>
+        <category>Misc</category>
+        <targetType>MapPlayerHome</targetType>
+        <workerClass>SeasonalWeather.IncidentWorker_Earthquake</workerClass>
+        <baseChance>0.01</baseChance>
+        <minRefireDays>15</minRefireDays>
+        <minDifficulty>2</minDifficulty>
+        <durationDays>
+            <min>0.075</min>
+            <max>0.1</max>
+        </durationDays>
+        <pointsScaleable>true</pointsScaleable>
+    </IncidentDef>
+
+</Defs>
