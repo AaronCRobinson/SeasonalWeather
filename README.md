@@ -19,9 +19,6 @@ Extends weather to change based on season. Please comment and let me know any fe
 - Min length without intervention is 5 days
 - Max length a quadrum
 
-## Notes
-The wildfire event may cause performance issues. [NoFirewatcher](https://github.com/AaronCRobinson/NoFirewatcher) and [ImprovedFirePerformance](https://github.com/AaronCRobinson/ImprovedFirePerformance) both address fire performance issues.
-
 ## Translations
 - English
 - Turkish (by Slevilex)
