@@ -43,7 +43,7 @@ namespace SeasonalWeather
                 GameCondition_WeatherEmanation gameCondition_WeatherEmanation = (GameCondition_WeatherEmanation)GameConditionMaker.MakeCondition(def, Traverse.Create(map.weatherDecider).Field("curWeatherDuration").GetValue<int>(), 0);
                 gameCondition_WeatherEmanation.weatherDroneLevel = def.weatherDroneLevel;
                 Find.VisibleMap.gameConditionManager.RegisterCondition(gameCondition_WeatherEmanation);
-                Find.LetterStack.ReceiveLetter(def.label, def.description, LetterDefOf.Good, null);
+                Find.LetterStack.ReceiveLetter(def.label, def.description, LetterDefOf.PositiveEvent, null);
             }
         }
     }

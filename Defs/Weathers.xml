@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<WeatherDefs>
+<Defs>
 
   <WeatherDef>
     <defName>Windy</defName>
@@ -283,51 +283,6 @@
     </modExtensions>
   </WeatherDef>
 
-  <!-- Earthquakes are not really seasonal (thus not really weather)... -->
-  <!--<WeatherDef>
-    <defName>Earthquake</defName>
-    <label>earthquake</label>
-    <description>An earthquake. Do not stand under things.</description>
-    <favorability>VeryBad</favorability>
-    <ambientSounds>
-      <li>AmbientWind_Clear</li>
-    </ambientSounds>
-    <durationRange>
-      <min>10000</min>
-      <max>25000</max>
-    </durationRange>
-    <eventMakers>
-      <li>
-        <averageInterval>1200</averageInterval>
-        <eventClass>SeasonalWeather.WeatherEvent_Earthquake</eventClass>
-      </li>
-    </eventMakers>
-    <skyColorsDay>
-      <sky>(1,1,1)</sky>
-      <shadow>(0.718,0.745,0.757)</shadow>
-      <overlay>(1,1,1)</overlay>
-      <saturation>1.25</saturation>
-    </skyColorsDay>
-    <skyColorsDusk>
-      <sky>(0.858,0.650,0.423)</sky>
-      <shadow>(0.955,0.886,0.914)</shadow>
-      <overlay>(0.8,0.8,0.8)</overlay>
-      <saturation>1.25</saturation>
-    </skyColorsDusk>
-    <skyColorsNightEdge>
-      <sky>(0.482,0.603,0.682)</sky>
-      <shadow>(0.92,0.92,0.92)</shadow>
-      <overlay>(0.6,0.6,0.6)</overlay>
-      <saturation>1.25</saturation>
-    </skyColorsNightEdge>
-    <skyColorsNightMid>
-      <sky>(0.482,0.603,0.682)</sky>
-      <shadow>(0.85, 0.85, 0.85)</shadow>
-      <overlay>(0.6,0.6,0.6)</overlay>
-      <saturation>1.25</saturation>
-    </skyColorsNightMid>
-  </WeatherDef>-->
-
   <WeatherDef>
     <defName>DoubleRainbow</defName>
     <label>double rainbow</label>
@@ -369,4 +324,4 @@
     </modExtensions>
   </WeatherDef>
 
-</WeatherDefs>
+</Defs>

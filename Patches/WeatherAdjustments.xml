@@ -2,7 +2,7 @@
 <Patch>
 
   <Operation Class="PatchOperationReplace">
-    <xpath>/WeatherDefs/WeatherDef[defName = "FoggyRain"]/rainRate</xpath>
+    <xpath>/Defs/WeatherDef[defName = "FoggyRain"]/rainRate</xpath>
     <value>
       <rainRate>0.5</rainRate>
     </value>

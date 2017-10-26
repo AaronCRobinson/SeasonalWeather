@@ -14,7 +14,7 @@ namespace SeasonalWeather
             return !map.gameConditionManager.ConditionIsActive(GameConditionDefOf.Earthquake);
         }
 
-        public override bool TryExecute(IncidentParms parms)
+        protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
             float points = parms.points;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<GameConditionDefs>
+<Defs>
 
   <GameConditionDef Class="SeasonalWeather.WeatherConditionDef">
     <defName>DoubleRainbow</defName>
@@ -18,4 +18,4 @@
     <endMessage>The earthquake has ended.</endMessage>
   </GameConditionDef>
 
-</GameConditionDefs>
+</Defs>

@@ -1,12 +1,22 @@
 ﻿using UnityEngine;
 using Verse;
+using RimWorld;
+using Harmony;
 
 namespace SeasonalWeather
 {
+    // NOTE: These broke in A18... but lol this works instead.
+
     [StaticConstructorOnStartup]
     public class WeatherOverlay_DustCloud : SkyOverlay
     {
-        private static readonly Material DustCloudOverlay = MatLoader.LoadMat("Weather/FogOverlayWorld", -1);
+        //private static readonly Material DustCloudOverlay = MatLoader.LoadMat("Weather/FogOverlayWorld", -1);
+        private static readonly Material DustCloudOverlay;
+
+        static WeatherOverlay_DustCloud()
+        {
+            DustCloudOverlay = (Material)AccessTools.Field(typeof(WeatherOverlay_Fog), "FogOverlayWorld").GetValue(new WeatherOverlay_Fog());
+        }
 
         public WeatherOverlay_DustCloud()
         {
@@ -23,7 +33,13 @@ namespace SeasonalWeather
     [StaticConstructorOnStartup]
     public class WeatherOverlay_DustParticles : SkyOverlay
     {
-        private static readonly Material DustParticlesOverlay = MatLoader.LoadMat("Weather/SnowOverlayWorld", -1);
+        //private static readonly Material DustParticlesOverlay = MatLoader.LoadMat("Weather/SnowOverlayWorld", -1); 
+        private static readonly Material DustParticlesOverlay;
+
+        static WeatherOverlay_DustParticles()
+        {
+            DustParticlesOverlay = (Material)AccessTools.Field(typeof(WeatherOverlay_SnowHard), "SnowOverlayWorld").GetValue(new WeatherOverlay_SnowHard());
+        }
 
         public WeatherOverlay_DustParticles()
         {

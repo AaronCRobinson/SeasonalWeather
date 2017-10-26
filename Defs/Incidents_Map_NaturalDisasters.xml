@@ -6,7 +6,9 @@
         <defName>Earthquake</defName>
         <label>earthquake</label>
         <category>Misc</category>
-        <targetType>MapPlayerHome</targetType>
+        <targetTypes>
+            <li>MapPlayerHome</li>
+        </targetTypes>
         <workerClass>SeasonalWeather.IncidentWorker_Earthquake</workerClass>
         <baseChance>0.01</baseChance>
         <minRefireDays>15</minRefireDays>
