@@ -1,4 +1,4 @@
-# SeasonalWeather [![RimWorld Alpha 17](https://img.shields.io/badge/RimWorld-Alpha%2017-brightgreen.svg)](http://rimworldgame.com/)
+# SeasonalWeather [![RimWorld Alpha 18](https://img.shields.io/badge/RimWorld-Alpha%2018-brightgreen.svg)](http://rimworldgame.com/)
 
 Extends weather to change based on season. Please comment and let me know any feedback about seasonal settings or potential related features.
 
