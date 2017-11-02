@@ -59,13 +59,22 @@ namespace SeasonalWeather
         private int nextFireTicks = 0;
         private int fires = 0;
         private bool seedingFires = true;
+        private SkyColorSet AshCloudColors;
 
         public GameCondition_Wildfire() : base()
         {
+            this.AshCloudColors = new SkyColorSet(new ColorInt(216, 255, 150).ToColor, new ColorInt(234, 200, 255).ToColor, new Color(0.7f, 0.85f, 0.65f), 0.85f);
             this.overlays = new List<SkyOverlay>{ new WeatherOverlay_DustCloud() };
         }
 
         public override List<SkyOverlay> SkyOverlays() => this.overlays;
+
+        public override float SkyTargetLerpFactor() => GameConditionUtility.LerpInOutValue(this, 5000f, 0.5f);
+
+        public override SkyTarget? SkyTarget()
+        {
+            return new SkyTarget?(new SkyTarget(0.85f, this.AshCloudColors, 1f, 1f));
+        }
 
         public override void Init()
         {
