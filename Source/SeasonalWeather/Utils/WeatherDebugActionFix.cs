@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using Verse;
 
-namespace SeasonalWeather
+namespace SeasonalWeather.Utils
 {
 #if DEBUG
     [StaticConstructorOnStartup]

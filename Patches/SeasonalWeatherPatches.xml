@@ -16,7 +16,6 @@
           <DryDuststorm>0.5</DryDuststorm>
           <Cloudy>3</Cloudy>
           <Windy>1</Windy>
-          <Wildfire>0.25</Wildfire>
         </spring>
         <summer>
           <Clear>20</Clear>
@@ -30,7 +29,6 @@
           <DryDuststorm>0.5</DryDuststorm>
           <Cloudy>2</Cloudy>
           <Windy>2</Windy>
-          <Wildfire>0.5</Wildfire>
         </summer>
         <fall>
           <Clear>20</Clear>
@@ -44,7 +42,6 @@
           <DryDuststorm>1</DryDuststorm>
           <Cloudy>5</Cloudy>
           <Windy>5</Windy>
-          <Wildfire>0.25</Wildfire>
         </fall>
         <winter>
           <Clear>20</Clear>
@@ -65,6 +62,69 @@
     </value>
   </Operation>
   <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/BiomeDef[defName = "BorealForest"]</xpath>
+    <value>
+      <li Class="SeasonalWeather.SeasonalWeatherExtension">
+        <spring>
+          <Clear>18</Clear>
+          <Rain>2</Rain>
+          <Fog>1</Fog>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>4</SnowGentle>
+          <SnowHard>3</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </spring>
+        <summer>
+          <Clear>18</Clear>
+          <Rain>4</Rain>
+          <Fog>2</Fog>
+          <DryThunderstorm>2</DryThunderstorm>
+          <RainyThunderstorm>3</RainyThunderstorm>
+          <FoggyRain>2</FoggyRain>
+          <SnowGentle>2</SnowGentle>
+          <SnowHard>1</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </summer>
+        <fall>
+          <Clear>18</Clear>
+          <Fog>1</Fog>
+          <Rain>2</Rain>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>4</SnowGentle>
+          <SnowHard>5</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </fall>
+        <winter>
+          <Clear>18</Clear>
+          <Fog>1</Fog>
+          <Rain>2</Rain>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>8</SnowGentle>
+          <SnowHard>6</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </winter>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
     <xpath>/Defs/BiomeDef[defName = "Desert"]</xpath>
     <value>
       <li Class="SeasonalWeather.SeasonalWeatherExtension">
@@ -78,7 +138,6 @@
           <SnowHard>0.01</SnowHard>
           <Dust>4.5</Dust>
           <DryDuststorm>2</DryDuststorm>
-          <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
           <Windy>8</Windy>
@@ -93,7 +152,6 @@
           <SnowHard>0.01</SnowHard>
           <Dust>4</Dust>
           <DryDuststorm>1.5</DryDuststorm>
-          <Wildfire>0.5</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
           <Windy>8</Windy>
@@ -108,7 +166,6 @@
           <SnowHard>0.01</SnowHard>
           <Dust>7</Dust>
           <DryDuststorm>3</DryDuststorm>
-          <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
           <Windy>8</Windy>
@@ -144,7 +201,6 @@
           <SnowHard>1</SnowHard>
           <Dust>5</Dust>
           <DryDuststorm>2</DryDuststorm>
-          <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
           <Windy>8</Windy>
@@ -158,7 +214,6 @@
           <SnowHard>0.5</SnowHard>
           <Dust>6</Dust>
           <DryDuststorm>3</DryDuststorm>
-          <Wildfire>0.5</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
           <Windy>8</Windy>
@@ -173,7 +228,6 @@
           <SnowHard>1</SnowHard>
           <Dust>8</Dust>
           <DryDuststorm>4</DryDuststorm>
-          <Wildfire>0.25</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
           <Windy>8</Windy>
@@ -193,135 +247,6 @@
           <DoubleRainbow>0.1</DoubleRainbow>
           <Cloudy>4</Cloudy>
           <Windy>8</Windy>
-        </winter>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAddModExtension">
-    <xpath>/Defs/BiomeDef[defName = "BorealForest"]</xpath>
-    <value>
-      <li Class="SeasonalWeather.SeasonalWeatherExtension">
-        <spring>
-          <Clear>18</Clear>
-          <Rain>2</Rain>
-          <Fog>1</Fog>
-          <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>1</FoggyRain>
-          <SnowGentle>4</SnowGentle>
-          <SnowHard>3</SnowHard>
-          <Wildfire>0.01</Wildfire>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
-        </spring>
-        <summer>
-          <Clear>18</Clear>
-          <Rain>4</Rain>
-          <Fog>2</Fog>
-          <DryThunderstorm>2</DryThunderstorm>
-          <RainyThunderstorm>3</RainyThunderstorm>
-          <FoggyRain>2</FoggyRain>
-          <SnowGentle>2</SnowGentle>
-          <SnowHard>1</SnowHard>
-          <Wildfire>0.05</Wildfire>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
-        </summer>
-        <fall>
-          <Clear>18</Clear>
-          <Fog>1</Fog>
-          <Rain>2</Rain>
-          <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>1</FoggyRain>
-          <SnowGentle>4</SnowGentle>
-          <SnowHard>5</SnowHard>
-          <Wildfire>0.01</Wildfire>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
-        </fall>
-        <winter>
-          <Clear>18</Clear>
-          <Fog>1</Fog>
-          <Rain>2</Rain>
-          <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>1</FoggyRain>
-          <SnowGentle>8</SnowGentle>
-          <SnowHard>6</SnowHard>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
-        </winter>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAddModExtension">
-    <xpath>/Defs/BiomeDef[defName = "Tundra"]</xpath>
-    <value>
-      <li Class="SeasonalWeather.SeasonalWeatherExtension">
-        <spring>
-          <Clear>14</Clear>
-          <Rain>2</Rain>
-          <Fog>1</Fog>
-          <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>1</FoggyRain>
-          <SnowGentle>4</SnowGentle>
-          <SnowHard>3</SnowHard>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
-        </spring>
-        <summer>
-          <Clear>14</Clear>
-          <Rain>4</Rain>
-          <Fog>2</Fog>
-          <DryThunderstorm>2</DryThunderstorm>
-          <RainyThunderstorm>3</RainyThunderstorm>
-          <FoggyRain>2</FoggyRain>
-          <SnowGentle>2</SnowGentle>
-          <SnowHard>1</SnowHard>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
-        </summer>
-        <fall>
-          <Clear>12</Clear>
-          <Fog>1</Fog>
-          <Rain>2</Rain>
-          <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>1</FoggyRain>
-          <SnowGentle>4</SnowGentle>
-          <SnowHard>5</SnowHard>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
-        </fall>
-        <winter>
-          <Clear>12</Clear>
-          <Fog>1</Fog>
-          <Rain>2</Rain>
-          <DryThunderstorm>1</DryThunderstorm>
-          <RainyThunderstorm>1</RainyThunderstorm>
-          <FoggyRain>1</FoggyRain>
-          <SnowGentle>8</SnowGentle>
-          <SnowHard>6</SnowHard>
-          <DoubleRainbow>0.1</DoubleRainbow>
-          <FogSnow>2</FogSnow>
-          <Windy>6</Windy>
-          <Cloudy>9</Cloudy>
         </winter>
       </li>
     </value>
@@ -452,7 +377,6 @@
           <FoggyRain>0.5</FoggyRain>
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
-          <Wildfire>0.15</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -467,7 +391,6 @@
           <FoggyRain>1</FoggyRain>
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
-          <Wildfire>0.3</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -482,7 +405,69 @@
           <FoggyRain>1</FoggyRain>
           <SnowGentle>1</SnowGentle>
           <SnowHard>0.5</SnowHard>
-          <Wildfire>0.15</Wildfire>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </fall>
+        <winter>
+          <Clear>18</Clear>
+          <Fog>0.1</Fog>
+          <Rain>2</Rain>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>2</FoggyRain>
+          <SnowGentle>1</SnowGentle>
+          <SnowHard>1</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </winter>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/BiomeDef[defName = "TemperateSwamp"]</xpath>
+    <value>
+      <li Class="SeasonalWeather.SeasonalWeatherExtension">
+        <spring>
+          <Clear>18</Clear>
+          <Rain>1.5</Rain>
+          <Fog>1.5</Fog>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>0.5</FoggyRain>
+          <SnowGentle>1</SnowGentle>
+          <SnowHard>0.5</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </spring>
+        <summer>
+          <Clear>16</Clear>
+          <Rain>2</Rain>
+          <Fog>1</Fog>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>2</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>1</SnowGentle>
+          <SnowHard>0.5</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </summer>
+        <fall>
+          <Clear>18</Clear>
+          <Fog>1</Fog>
+          <Rain>2</Rain>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>1</SnowGentle>
+          <SnowHard>0.5</SnowHard>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -522,7 +507,6 @@
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
           <Cloudy>9</Cloudy>
-          <Wildfire>0.01</Wildfire>
         </spring>
         <summer>
           <Clear>13</Clear>
@@ -533,7 +517,6 @@
           <FoggyRain>1</FoggyRain>
           <SnowGentle>0.25</SnowGentle>
           <SnowHard>0.25</SnowHard>
-          <Wildfire>0.03</Wildfire>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
@@ -552,7 +535,6 @@
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>
           <Cloudy>9</Cloudy>
-          <Wildfire>0.01</Wildfire>
         </fall>
         <winter>
           <Clear>8</Clear>
@@ -563,6 +545,132 @@
           <FoggyRain>2</FoggyRain>
           <SnowGentle>0.25</SnowGentle>
           <SnowHard>0.25</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </winter>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/BiomeDef[defName = "TropicalSwamp"]</xpath>
+    <value>
+      <li Class="SeasonalWeather.SeasonalWeatherExtension">
+        <spring>
+          <Clear>13</Clear>
+          <Rain>7</Rain>
+          <Fog>2</Fog>
+          <DryThunderstorm>0.25</DryThunderstorm>
+          <RainyThunderstorm>2</RainyThunderstorm>
+          <FoggyRain>3</FoggyRain>
+          <SnowGentle>0.25</SnowGentle>
+          <SnowHard>0.25</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </spring>
+        <summer>
+          <Clear>13</Clear>
+          <Rain>7</Rain>
+          <Fog>1</Fog>
+          <DryThunderstorm>0.25</DryThunderstorm>
+          <RainyThunderstorm>2</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>0.25</SnowGentle>
+          <SnowHard>0.25</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </summer>
+        <fall>
+          <Clear>8</Clear>
+          <Fog>1</Fog>
+          <Rain>12</Rain>
+          <DryThunderstorm>0.25</DryThunderstorm>
+          <RainyThunderstorm>4</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>0.25</SnowGentle>
+          <SnowHard>0.25</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </fall>
+        <winter>
+          <Clear>8</Clear>
+          <Fog>2</Fog>
+          <Rain>12</Rain>
+          <DryThunderstorm>0.25</DryThunderstorm>
+          <RainyThunderstorm>3</RainyThunderstorm>
+          <FoggyRain>2</FoggyRain>
+          <SnowGentle>0.25</SnowGentle>
+          <SnowHard>0.25</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </winter>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/BiomeDef[defName = "Tundra"]</xpath>
+    <value>
+      <li Class="SeasonalWeather.SeasonalWeatherExtension">
+        <spring>
+          <Clear>14</Clear>
+          <Rain>2</Rain>
+          <Fog>1</Fog>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>4</SnowGentle>
+          <SnowHard>3</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </spring>
+        <summer>
+          <Clear>14</Clear>
+          <Rain>4</Rain>
+          <Fog>2</Fog>
+          <DryThunderstorm>2</DryThunderstorm>
+          <RainyThunderstorm>3</RainyThunderstorm>
+          <FoggyRain>2</FoggyRain>
+          <SnowGentle>2</SnowGentle>
+          <SnowHard>1</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </summer>
+        <fall>
+          <Clear>12</Clear>
+          <Fog>1</Fog>
+          <Rain>2</Rain>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>4</SnowGentle>
+          <SnowHard>5</SnowHard>
+          <DoubleRainbow>0.1</DoubleRainbow>
+          <FogSnow>2</FogSnow>
+          <Windy>6</Windy>
+          <Cloudy>9</Cloudy>
+        </fall>
+        <winter>
+          <Clear>12</Clear>
+          <Fog>1</Fog>
+          <Rain>2</Rain>
+          <DryThunderstorm>1</DryThunderstorm>
+          <RainyThunderstorm>1</RainyThunderstorm>
+          <FoggyRain>1</FoggyRain>
+          <SnowGentle>8</SnowGentle>
+          <SnowHard>6</SnowHard>
           <DoubleRainbow>0.1</DoubleRainbow>
           <FogSnow>2</FogSnow>
           <Windy>6</Windy>

@@ -1,6 +1,6 @@
 ﻿using Verse;
 using UnityEngine;
-using ModSettingsHelper;
+using SettingsHelper;
 
 namespace SeasonalWeather
 {
@@ -30,10 +30,12 @@ namespace SeasonalWeather
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            ModWindowHelper.Reset();
-            ModWindowHelper.MakeLabeledCheckbox(inRect, "EnableEarthquakesLabel".Translate() + ": ", ref settings.enableEarthquakes);
-            ModWindowHelper.MakeLabeledCheckbox(inRect, "EnableWildfiresLabel".Translate() + ": ", ref settings.enableWildfires);
-            ModWindowHelper.MakeLabel(inRect, "DynamicDefNote".Translate());
+            Listing_Standard listing_Standard = new Listing_Standard();
+            listing_Standard.Begin(inRect);
+            listing_Standard.AddLabeledCheckbox("EnableEarthquakesLabel".Translate() + ": ", ref settings.enableEarthquakes);
+            listing_Standard.AddLabeledCheckbox("EnableWildfiresLabel".Translate() + ": ", ref settings.enableWildfires);
+            listing_Standard.AddLabelLine("DynamicDefNote".Translate());
+            listing_Standard.End();
             settings.Write();
         }
     }

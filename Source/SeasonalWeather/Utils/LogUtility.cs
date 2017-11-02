@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Verse;
 using System.Reflection;
+using Verse;
 using Harmony;
 
-namespace SeasonalWeather
+namespace SeasonalWeather.Utils
 {
     class LogUtility
     {

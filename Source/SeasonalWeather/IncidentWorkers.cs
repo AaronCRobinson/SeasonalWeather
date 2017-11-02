@@ -11,7 +11,7 @@ namespace SeasonalWeather
         protected override bool CanFireNowSub(IIncidentTarget target)
         {
             Map map = (Map)target;
-            return !map.gameConditionManager.ConditionIsActive(GameConditionDefOf.Earthquake);
+            return SeasonalWeatherMod.settings.enableEarthquakes && !map.gameConditionManager.ConditionIsActive(GameConditionDefOf.Earthquake);
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)
@@ -26,6 +26,7 @@ namespace SeasonalWeather
             return true;
         }
 
+        // multiply duration by magnitude
         public void GetDuration(float magnitude)
         {
             this.duration = Mathf.CeilToInt(this.def.GetDuration() * magnitude);
@@ -33,11 +34,31 @@ namespace SeasonalWeather
 
     }
 
-    static class IncidentHelper
+    public class IncidentWorker_Wildfire : IncidentWorker
     {
-        public static int GetDuration(this IncidentDef def)
+        private int duration;
+
+        protected override bool CanFireNowSub(IIncidentTarget target)
         {
-            return Mathf.RoundToInt(def.durationDays.RandomInRange * 60000f);
+            Map map = (Map)target;
+            return SeasonalWeatherMod.settings.enableWildfires && !map.gameConditionManager.ConditionIsActive(GameConditionDefOf.Wildfire);
         }
+
+        protected override bool TryExecuteWorker(IncidentParms parms)
+        {
+            Map map = (Map)parms.target;
+            //float points = parms.points;
+            this.duration = this.def.GetDuration();
+            GameCondition_Wildfire gameCondition_Wildfire = (GameCondition_Wildfire)GameConditionMaker.MakeCondition(GameConditionDefOf.Wildfire, this.duration, 0);
+            map.gameConditionManager.RegisterCondition(gameCondition_Wildfire);
+            return true;
+        }
+
     }
+
+    internal static class IncidentDef_Helper
+    {
+        public static int GetDuration(this IncidentDef def) => Mathf.RoundToInt(def.durationDays.RandomInRange * 60000f);
+    }
+
 }

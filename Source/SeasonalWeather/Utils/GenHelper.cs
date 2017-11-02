@@ -2,9 +2,11 @@
 using Verse;
 using RimWorld;
 
-namespace SeasonalWeather
+namespace SeasonalWeather.Utils
 {
-
+    /// <summary>
+    /// provides IsHashIntervalTick implementations with caching
+    /// </summary>
     static class HashCache
     {
         private static Dictionary<string, int> hashCache = new Dictionary<string, int>();

@@ -39,6 +39,9 @@
       <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\SeasonalWeather\Assemblies\0Harmony.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="1SettingsHelper">
+      <HintPath>..\..\..\SettingsHelper\Assemblies\1SettingsHelper.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -56,24 +59,20 @@
   <ItemGroup>
     <Compile Include="Earthquake.cs" />
     <Compile Include="GameConditions.cs" />
-    <Compile Include="GenHelper.cs" />
+    <Compile Include="Utils\GenHelper.cs" />
     <Compile Include="IncidentWorkers.cs" />
-    <Compile Include="LogUtility.cs" />
+    <Compile Include="Utils\LogUtility.cs" />
     <Compile Include="DefOf.cs" />
-    <Compile Include="DynamicDefHelper.cs" />
-    <Compile Include="GameComponent.cs" />
-    <Compile Include="ModWindowHelper.cs" />
+    <Compile Include="Utils\DynamicDefHelper.cs" />
     <Compile Include="GrowthRate.cs" />
     <Compile Include="ModSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonalWeatherExtension.cs" />
-    <Compile Include="WeatherDebugActionFix.cs" />
-    <Compile Include="CustomWeatherWorkerPatches.cs" />
+    <Compile Include="Utils\WeatherDebugActionFix.cs" />
     <Compile Include="WeatherEvents.cs" />
     <Compile Include="FollowsRainExtension.cs" />
     <Compile Include="WeatherOverlays.cs" />
     <Compile Include="WeatherSoothe.cs" />
-    <Compile Include="WeatherWorkers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

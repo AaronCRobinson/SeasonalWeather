@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <!--========================== Bad ===============================-->
 
     <IncidentDef>
         <defName>Earthquake</defName>
@@ -10,7 +9,8 @@
             <li>MapPlayerHome</li>
         </targetTypes>
         <workerClass>SeasonalWeather.IncidentWorker_Earthquake</workerClass>
-        <baseChance>0.01</baseChance>
+        <baseChance>0.1</baseChance>
+        <earliestDay>10</earliestDay>
         <minRefireDays>15</minRefireDays>
         <minDifficulty>2</minDifficulty>
         <durationDays>
@@ -18,6 +18,28 @@
             <max>0.1</max>
         </durationDays>
         <pointsScaleable>true</pointsScaleable>
+    </IncidentDef>
+
+    <IncidentDef>
+        <defName>Wildfire</defName>
+        <label>wildfire</label>
+        <category>Misc</category>
+        <targetTypes>
+            <li>MapPlayerHome</li>
+        </targetTypes>
+        <workerClass>SeasonalWeather.IncidentWorker_Wildfire</workerClass>
+        <letterLabel>Toxic fallout</letterLabel>
+        <letterText>A large wildfire has broken out nearby and is now spreading to your location.</letterText>
+        <letterDef>ThreatSmall</letterDef>
+        <baseChance>0.15</baseChance>
+        <earliestDay>15</earliestDay>
+        <minRefireDays>30</minRefireDays>
+        <minDifficulty>2</minDifficulty>
+        <durationDays>
+            <min>1.0</min>
+            <max>6.6</max>
+        </durationDays>
+        <!--<pointsScaleable>true</pointsScaleable>-->
     </IncidentDef>
 
 </Defs>

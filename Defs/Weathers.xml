@@ -7,6 +7,7 @@
     <description>A clear, windy day, great for turbines, not so great for shooting.</description>
     <repeatable>true</repeatable>
     <favorability>Neutral</favorability>
+    <perceivePriority>1</perceivePriority>
     <ambientSounds>
       <li>AmbientWind_Storm</li>
     </ambientSounds>
@@ -45,6 +46,7 @@
     <description>A cloudy day, lowers brightness.</description>
     <repeatable>true</repeatable>
     <favorability>Good</favorability>
+    <perceivePriority>0</perceivePriority>
     <ambientSounds>
       <li>AmbientWind_Clear</li>
     </ambientSounds>
@@ -87,6 +89,7 @@
     <windSpeedFactor>1.5</windSpeedFactor>
     <accuracyMultiplier>0.8</accuracyMultiplier>
     <favorability>Neutral</favorability>
+    <perceivePriority>1</perceivePriority>
     <rainRate>1</rainRate>
     <overlayClasses>
       <li>WeatherOverlay_Fog</li>
@@ -96,8 +99,7 @@
     <commonalityRainfallFactor>
       <points>
         <li>(0, 0)</li>
-        <li>(300,0.5)</li>
-        <li>(1300, 1)</li>
+        <li>(1300, 1.0)</li>
       </points>
     </commonalityRainfallFactor>
     <ambientSounds>
@@ -137,6 +139,7 @@
     <windSpeedFactor>1</windSpeedFactor>
     <accuracyMultiplier>0.25</accuracyMultiplier>
     <favorability>Neutral</favorability>
+    <perceivePriority>1</perceivePriority>
     <ambientSounds>
       <li>AmbientWind_Fog</li>
     </ambientSounds>
@@ -144,6 +147,14 @@
       <li>SeasonalWeather.WeatherOverlay_DustCloud</li>
       <li>SeasonalWeather.WeatherOverlay_DustParticles</li>
     </overlayClasses>
+    <!-- Inverse values -->
+    <commonalityRainfallFactor>
+      <points>
+        <li>(0, 2.0)</li>
+        <li>(1300, 0.25)</li>
+        <li>(4000, 0.01)</li>
+      </points>
+    </commonalityRainfallFactor>
     <durationRange>
       <min>15000</min>
       <max>40000</max>
@@ -186,6 +197,7 @@
     <windSpeedFactor>2</windSpeedFactor>
     <accuracyMultiplier>0.25</accuracyMultiplier>
     <favorability>VeryBad</favorability>
+    <perceivePriority>2</perceivePriority>
     <ambientSounds>
       <li>AmbientWind_Storm</li>
     </ambientSounds>
@@ -193,6 +205,14 @@
       <li>SeasonalWeather.WeatherOverlay_DustCloud</li>
       <li>SeasonalWeather.WeatherOverlay_DustParticles</li>
     </overlayClasses>
+    <!-- Inverse values -->
+    <commonalityRainfallFactor>
+      <points>
+        <li>(0, 2.0)</li>
+        <li>(1300, 0.25)</li>
+        <li>(4000, 0.01)</li>
+      </points>
+    </commonalityRainfallFactor>
     <durationRange>
       <min>15000</min>
       <max>40000</max>
@@ -231,63 +251,11 @@
   </WeatherDef>
 
   <WeatherDef>
-    <defName>Wildfire</defName>
-    <label>wildfire</label>
-    <!--<workerClass>SeasonalWeather.WeatherWorker_Wildfire</workerClass>-->
-    <description>This fire is wild... beware of inviting it to parties.</description>
-    <temperatureRange>
-      <min>10</min>
-      <max>999</max>
-    </temperatureRange>
-    <accuracyMultiplier>0.65</accuracyMultiplier>
-    <favorability>Neutral</favorability>
-    <ambientSounds>
-      <li>AmbientWind_Fog</li>
-    </ambientSounds>
-    <overlayClasses>
-      <li>SeasonalWeather.WeatherOverlay_DustCloud</li>
-    </overlayClasses>
-    <durationRange>
-      <min>300000</min>
-      <max>1000000</max>
-    </durationRange>
-    <!-- Colors are Overcast -->
-    <skyColorsDay>
-      <sky>(0.8,0.8,0.8)</sky>
-      <shadow>(0.92,0.92,0.92)</shadow>
-      <overlay>(0.7,0.62,0.5)</overlay>
-      <saturation>0.9</saturation>
-    </skyColorsDay>
-    <skyColorsDusk>
-      <sky>(1,1,1)</sky>
-      <shadow>(0.92,0.92,0.92)</shadow>
-      <overlay>(0.6,0.52,0.4)</overlay>
-      <saturation>0.9</saturation>
-    </skyColorsDusk>
-    <skyColorsNightEdge>
-      <sky>(0.35,0.40,0.45)</sky>
-      <shadow>(0.92,0.92,0.92)</shadow>
-      <overlay>(0.5,0.42,0.3)</overlay>
-      <saturation>0.9</saturation>
-    </skyColorsNightEdge>
-    <skyColorsNightMid>
-      <sky>(0.35,0.40,0.45)</sky>
-      <shadow>(0.92,0.92,0.92)</shadow>
-      <overlay>(0.4,0.32,0.2)</overlay>
-      <saturation>0.9</saturation>
-    </skyColorsNightMid>
-    <modExtensions>
-      <li Class="SeasonalWeather.WeatherWorkerExtension">
-        <workerClass>SeasonalWeather.WeatherWorker_Wildfire</workerClass>
-      </li>
-    </modExtensions>
-  </WeatherDef>
-
-  <WeatherDef>
     <defName>DoubleRainbow</defName>
     <label>double rainbow</label>
     <description>A double rainbow. The weather is soothing.</description>
     <favorability>VeryGood</favorability>
+    <perceivePriority>1</perceivePriority>
     <rainRate>0.01</rainRate>
     <ambientSounds>
       <li>AmbientWind_Clear</li>

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 using Harmony;
 
-namespace SeasonalWeather
+// NOTE: no longer used but worth keeping around.
+namespace SeasonalWeather.Utils
 {
     public static class DynamicWeatherDefs
     {

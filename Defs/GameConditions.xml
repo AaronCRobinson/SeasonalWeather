@@ -18,4 +18,12 @@
     <endMessage>The earthquake has ended.</endMessage>
   </GameConditionDef>
 
+  <GameConditionDef>
+    <defName>Wildfire</defName>
+    <conditionClass>SeasonalWeather.GameCondition_Wildfire</conditionClass>
+    <label>wildfire</label>
+    <description>Wildfire</description>
+    <endMessage>The wildfire has ended.</endMessage>
+  </GameConditionDef>
+
 </Defs>

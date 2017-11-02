@@ -4,8 +4,7 @@ using Verse;
 using RimWorld;
 using Harmony;
 
-// if (weather.favorability == Favorability.VeryGood && this.map.weatherManager.lastWeather.rainRate > 0.1f) => "Double Rainbow"
-// map.gameConditionManager.RegisterCondition(gameCondition_PsychicEmanation); => like Psychic Soothe
+using SeasonalWeather.Utils;
 
 namespace SeasonalWeather
 {
@@ -25,12 +24,14 @@ namespace SeasonalWeather
                     map.Biome.baseWeatherCommonalities = this.spring;
                     break;
                 case Season.Summer:
+                case Season.PermanentSummer:
                     map.Biome.baseWeatherCommonalities = this.summer;
                     break;
                 case Season.Fall:
                     map.Biome.baseWeatherCommonalities = this.fall;
                     break;
                 case Season.Winter:
+                case Season.PermanentWinter:
                     map.Biome.baseWeatherCommonalities = this.winter;
                     break;
             }
@@ -38,7 +39,7 @@ namespace SeasonalWeather
     }
 
     [StaticConstructorOnStartup]
-    class SeasonalWeatherExtensionPatches
+    static class SeasonalWeatherExtensionPatches
     {
         private const int TickerTypeLong = 2000;
 
@@ -49,57 +50,40 @@ namespace SeasonalWeather
         {
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.whyisthat.seasonalweather.seasonalweatherextension");
 
+            harmony.Patch(AccessTools.Method(typeof(GameComponentUtility), nameof(GameComponentUtility.FinalizeInit)), null, new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(FinalizeInit)));
             harmony.Patch(AccessTools.Method(typeof(DateNotifier), nameof(DateNotifier.DateNotifierTick)), new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(DateNotifierTickPrefix)), null);
         }
 
         // NOTE: should this be somewhere else?
-        public static void FinalizeInit()
+        public static void FinalizeInit() => CheckBaseWeatherCommonalities(Find.DateNotifier);
+
+        public static void DateNotifierTickPrefix(DateNotifier __instance)
         {
-            Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(Find.DateNotifier, new object[] { });
+            if (__instance.IsHashIntervalTick(TickerTypeLong))
+                CheckBaseWeatherCommonalities(__instance);
+        }
+
+        public static void CheckBaseWeatherCommonalities(DateNotifier __instance)
+        {
+            Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(__instance, new object[] { });
             SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
-            
             if (ext != null)
             {
                 Season season = map.GetSeason();
-                ext.AdjustBaseWeatherCommonalities(map, season);
+                Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
+                if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
+                {
+                    Log.Message("SeasonalWeather: season changed");
+                    ext.AdjustBaseWeatherCommonalities(map, season);
+                }
             }
             else
             {
                 LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.", 725491);
             }
-
         }
 
-        public static void DateNotifierTickPrefix(DateNotifier __instance)
-        {
-
-            if (__instance.IsHashIntervalTick(TickerTypeLong))
-            {
-                Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(__instance, new object[] { });
-                SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
-
-                if (ext != null)
-                {
-                    Season season = map.GetSeason();
-                    Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
-                    if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
-                    {
-                        Log.Message("SeasonalWeather: season changed");
-                        ext.AdjustBaseWeatherCommonalities(map, season);
-                    }
-                }
-                else
-                {
-                    LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.", 725491);
-                }
-            }
-
-        }
-    }
-
-    public static class SeasonHelper
-    {
-        public static Season GetSeason(this Map map)
+        private static Season GetSeason(this Map map)
         {
             float latitude = Find.WorldGrid.LongLatOf(map.Tile).y;
             float longitude = Find.WorldGrid.LongLatOf(map.Tile).x;
