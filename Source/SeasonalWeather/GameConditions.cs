@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using RimWorld;
@@ -53,6 +54,7 @@ namespace SeasonalWeather
     public class GameCondition_Wildfire : NaturalDisaster
     {
         private static readonly IntRange TicksBetweenFires = new IntRange(320, 800);
+        private static readonly bool noFirewatcher;
 
         private List<SkyOverlay> overlays;
         private Rot4 direction;
@@ -60,6 +62,11 @@ namespace SeasonalWeather
         private int fires = 0;
         private bool seedingFires = true;
         private SkyColorSet AshCloudColors;
+
+        static GameCondition_Wildfire()
+        {
+            noFirewatcher = ModLister.AllInstalledMods.FirstOrDefault(m => m.Name == "No Firewatcher")?.Active == true;
+        }
 
         public GameCondition_Wildfire() : base()
         {
@@ -94,16 +101,31 @@ namespace SeasonalWeather
 
         public override void GameConditionTick()
         {
-            if (seedingFires && Find.TickManager.TicksGame > this.nextFireTicks)
+            if (this.seedingFires && Find.TickManager.TicksGame > this.nextFireTicks)
             {
-                SpawnFire(base.Map);
-                this.nextFireTicks = Find.TickManager.TicksGame + GameCondition_Wildfire.TicksBetweenFires.RandomInRange;
-                fires--;
-                if (fires <= 0)
-                    seedingFires = false;
+                if (Find.TickManager.TicksGame > this.nextFireTicks)
+                {
+                    this.SpawnFire(base.Map);
+                    this.nextFireTicks = Find.TickManager.TicksGame + GameCondition_Wildfire.TicksBetweenFires.RandomInRange;
+                    this.fires--;
+                    if (this.fires <= 0)
+                        this.seedingFires = false;
+                }
+            } else
+            {
+                if (!base.Map.fireWatcher.LargeFireDangerPresent)
+                {
+                    Log.Message("GameCondition_Wildfire averted");
+                    // TODO: letter?
+                    this.Duration = 0; // Expired => true
+                }
             }
+
             for (int j = 0; j < this.overlays.Count; j++)
                 this.overlays[j].TickOverlay(base.Map);
+
+            if (noFirewatcher)
+                base.Map.fireWatcher.FireWatcherTick();
         }
 
         public override void GameConditionDraw()
