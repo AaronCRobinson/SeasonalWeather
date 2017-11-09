@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -87,59 +88,44 @@ namespace SeasonalWeather
         private void CreateFaultCell(IntVec3 cell)
         {
             bool roofCollapsed = GridsUtility.Roofed(cell, this.map);
+
             Thing[] things = GridsUtility.GetThingList(cell, this.map).ToArray();
-
-            this.TryToDropRoof(cell); // TODO: consider type of roof in the drop.a
-            for (int i = 0; i < things.Length; i++)
+            foreach (Building building in things.OfType<Building>())
             {
-                Thing thing = things[i];
-                if (thing is Building && thing.def.destroyable && !thing.def.building.isNaturalRock && !thing.Destroyed)
+                if (!building.def.destroyable || !building.def.building.isNaturalRock || building.Destroyed)
+                    continue;
+                if (building.def.holdsRoof)
                 {
-                    Building b = thing as Building;
-
-                    CompRefuelable compRefuel = b.TryGetComp<CompRefuelable>();
-                    if (compRefuel != null && compRefuel.HasFuel)
-                    {
-                        FireUtility.TryStartFireIn(cell, this.map, 3.0f * compRefuel.Fuel);
-                    }       
-                    else
-                    {
-                        CompPower compPower = b.TryGetComp<CompPower>();
-                        if (compPower != null) // consider more specific fires for different types. (explosions for power plants)
-                            FireUtility.TryStartFireIn(cell, this.map, 2.0f);
-                    }
-                    b.Destroy(DestroyMode.Vanish);
+                    roofCollapsed = false;
+                    continue;
                 }
-                else if (thing is Pawn) // TODO: consider doing pawns last to do variable types of damage based on what's in the cell...
+                CompRefuelable compRefuel = building.TryGetComp<CompRefuelable>();
+                if (compRefuel != null && compRefuel.HasFuel)
+                    FireUtility.TryStartFireIn(cell, this.map, 3.0f * compRefuel.Fuel);
+                else
                 {
-                    if (roofCollapsed) HediffGiveUtility.TryApply((Pawn)thing, HediffDefOf.Shredded, null, true, 3, null);
-                    else HediffGiveUtility.TryApply((Pawn)thing, HediffDefOf.Shredded, null, true, 1, null);
+                    CompPower compPower = building.TryGetComp<CompPower>();
+                    if (compPower != null) // consider more specific fires for different types. (explosions for power plants)
+                        FireUtility.TryStartFireIn(cell, this.map, 2.0f);
                 }
+                building.Destroy(DestroyMode.Vanish);
             }
+
+            foreach (Pawn pawn in things.OfType<Pawn>())
+            {
+                if (roofCollapsed) HediffGiveUtility.TryApply(pawn, HediffDefOf.Shredded, null, true, 3, null);
+                else HediffGiveUtility.TryApply(pawn, HediffDefOf.Shredded, null, true, 1, null);
+            }
+
+            // TODO: consider type of roof in the drop.
+            if (roofCollapsed)
+            {
+                this.map.roofCollapseBuffer.MarkToCollapse(cell);
+                this.map.roofCollapseBufferResolver.CollapseRoofsMarkedToCollapse();
+            }
+
             this.map.terrainGrid.RemoveTopLayer(cell, false);
             FilthMaker.MakeFilth(cell, this.map, ThingDefOf.RockRubble, 1);
-        }
-
-        private void TryToDropRoof(IntVec3 cell)
-        {
-            //ValidateCell
-            IntVec3 newCell;
-            for (int i = -1; i <= 1; i++)
-            {
-                for (int j = -1; j <= 1; j++)
-                {
-                    newCell = cell + new IntVec3(i, 0, j);
-                    try
-                    {
-                        if (GenGrid.InBounds(newCell, this.map) && GridsUtility.Roofed(newCell, this.map))
-                            RoofCollapserImmediate.DropRoofInCells(newCell, this.map);
-                    }
-                    catch (NullReferenceException)
-                    {
-                        Log.Warning($"NullReferenceException trying to drop roof: {newCell.x},0,{newCell.z}");
-                    }
-                }
-            }
         }
 
     }
