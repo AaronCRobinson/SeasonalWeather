@@ -92,9 +92,9 @@ namespace SeasonalWeather
             Thing[] things = GridsUtility.GetThingList(cell, this.map).ToArray();
             foreach (Building building in things.OfType<Building>())
             {
-                if (!building.def.destroyable || !building.def.building.isNaturalRock || building.Destroyed)
+                if (!building.def.destroyable || building.Destroyed)
                     continue;
-                if (building.def.holdsRoof)
+                if (building.def.holdsRoof || building.def.building.isNaturalRock)
                 {
                     roofCollapsed = false;
                     continue;
