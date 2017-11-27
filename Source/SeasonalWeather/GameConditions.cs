@@ -88,6 +88,7 @@ namespace SeasonalWeather
             base.Init();
             IntRange range = new IntRange((int)(base.Map.Size.x * 0.23f), (int)(base.Map.Size.x * 0.4f));
             this.fires = range.RandomInRange;
+            Log.Message($"{this.fires}");
             // how to find out if this side is a mountain face?
             this.direction = Rot4.Random;
         }
@@ -101,7 +102,7 @@ namespace SeasonalWeather
 
         public override void GameConditionTick()
         {
-            if (this.seedingFires && Find.TickManager.TicksGame > this.nextFireTicks)
+            if (this.seedingFires)
             {
                 if (Find.TickManager.TicksGame > this.nextFireTicks)
                 {
@@ -113,19 +114,14 @@ namespace SeasonalWeather
                 }
             } else
             {
+                if (noFirewatcher)
+                    base.Map.fireWatcher.FireWatcherTick();
                 if (!base.Map.fireWatcher.LargeFireDangerPresent)
-                {
-                    Log.Message("GameCondition_Wildfire averted");
-                    // TODO: letter?
                     this.Duration = 0; // Expired => true
-                }
             }
 
             for (int j = 0; j < this.overlays.Count; j++)
                 this.overlays[j].TickOverlay(base.Map);
-
-            if (noFirewatcher)
-                base.Map.fireWatcher.FireWatcherTick();
         }
 
         public override void GameConditionDraw()
