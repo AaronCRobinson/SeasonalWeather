@@ -8,9 +8,9 @@ namespace SeasonalWeather
 {
     public class NaturalDisaster : GameCondition
     {
-        public override float AnimalDensityFactor() => 0.1f;
-        public override float PlantDensityFactor() => 0.4f;
-        public override bool AllowEnjoyableOutsideNow() => false;
+        public override float AnimalDensityFactor(Map m) => 0.1f;
+        public override float PlantDensityFactor(Map m) => 0.4f;
+        public override bool AllowEnjoyableOutsideNow(Map m) => false;
     }
 
     public class GameCondition_Earthquake : NaturalDisaster
@@ -45,7 +45,7 @@ namespace SeasonalWeather
             base.GameConditionTick();
             if (Find.TickManager.TicksGame > this.nextTremorTicks)
             {
-                base.Map.weatherManager.eventHandler.AddEvent(new WeatherEvent_Tremor(base.Map));
+                base.SingleMap.weatherManager.eventHandler.AddEvent(new WeatherEvent_Tremor(base.SingleMap));
                 this.nextTremorTicks = Mathf.FloorToInt((Find.TickManager.TicksGame + TicksBetweenTremors.RandomInRange) / this.magnitude);
             }
         }
@@ -56,7 +56,7 @@ namespace SeasonalWeather
         private static readonly IntRange TicksBetweenFires = new IntRange(320, 800);
         private static readonly bool noFirewatcher;
 
-        private List<SkyOverlay> overlays;
+        private readonly List<SkyOverlay> overlays;
         private Rot4 direction;
         private int nextFireTicks = 0;
         private int fires = 0;
@@ -74,11 +74,11 @@ namespace SeasonalWeather
             this.overlays = new List<SkyOverlay>{ new WeatherOverlay_DustCloud() };
         }
 
-        public override List<SkyOverlay> SkyOverlays() => this.overlays;
+        public override List<SkyOverlay> SkyOverlays(Map map) => this.overlays;
 
-        public override float SkyTargetLerpFactor() => GameConditionUtility.LerpInOutValue(this, 5000f, 0.5f);
+        public override float SkyTargetLerpFactor(Map map) => GameConditionUtility.LerpInOutValue(this, 5000f, 0.5f);
 
-        public override SkyTarget? SkyTarget()
+        public override SkyTarget? SkyTarget(Map map)
         {
             return new SkyTarget?(new SkyTarget(0.85f, this.AshCloudColors, 1f, 1f));
         }
@@ -86,7 +86,7 @@ namespace SeasonalWeather
         public override void Init()
         {
             base.Init();
-            IntRange range = new IntRange((int)(base.Map.Size.x * 0.23f), (int)(base.Map.Size.x * 0.4f));
+            IntRange range = new IntRange((int)(base.SingleMap.Size.x * 0.23f), (int)(base.SingleMap.Size.x * 0.4f));
             this.fires = range.RandomInRange;
             Log.Message($"{this.fires}");
             // how to find out if this side is a mountain face?
@@ -106,7 +106,7 @@ namespace SeasonalWeather
             {
                 if (Find.TickManager.TicksGame > this.nextFireTicks)
                 {
-                    this.SpawnFire(base.Map);
+                    this.SpawnFire(base.SingleMap);
                     this.nextFireTicks = Find.TickManager.TicksGame + GameCondition_Wildfire.TicksBetweenFires.RandomInRange;
                     this.fires--;
                     if (this.fires <= 0)
@@ -115,18 +115,17 @@ namespace SeasonalWeather
             } else
             {
                 if (noFirewatcher)
-                    base.Map.fireWatcher.FireWatcherTick();
-                if (!base.Map.fireWatcher.LargeFireDangerPresent)
+                    base.SingleMap.fireWatcher.FireWatcherTick();
+                if (!base.SingleMap.fireWatcher.LargeFireDangerPresent)
                     this.Duration = 0; // Expired => true
             }
 
             for (int j = 0; j < this.overlays.Count; j++)
-                this.overlays[j].TickOverlay(base.Map);
+                this.overlays[j].TickOverlay(base.SingleMap);
         }
 
-        public override void GameConditionDraw()
+        public override void GameConditionDraw(Map map)
         {
-            Map map = base.Map;
             for (int i = 0; i < this.overlays.Count; i++)
                 this.overlays[i].DrawOverlay(map);
         }
@@ -136,7 +135,7 @@ namespace SeasonalWeather
             IntVec3 cell = CellFinder.RandomEdgeCell(this.direction, map);
             Fire fire = (Fire)ThingMaker.MakeThing(ThingDefOf.Fire, null);
             fire.fireSize = 1.0f;
-            GenSpawn.Spawn(fire, cell, map, Rot4.North, false);
+            GenSpawn.Spawn(fire, cell, map, Rot4.North);
         }
 
     }

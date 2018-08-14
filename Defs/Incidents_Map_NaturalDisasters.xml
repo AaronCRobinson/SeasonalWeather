@@ -5,9 +5,9 @@
         <defName>Earthquake</defName>
         <label>earthquake</label>
         <category>Misc</category>
-        <targetTypes>
-            <li>MapPlayerHome</li>
-        </targetTypes>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
         <workerClass>SeasonalWeather.IncidentWorker_Earthquake</workerClass>
         <baseChance>0.1</baseChance>
         <earliestDay>10</earliestDay>
@@ -24,9 +24,9 @@
         <defName>Wildfire</defName>
         <label>wildfire</label>
         <category>Misc</category>
-        <targetTypes>
-            <li>MapPlayerHome</li>
-        </targetTypes>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
         <workerClass>SeasonalWeather.IncidentWorker_Wildfire</workerClass>
         <letterLabel>Toxic fallout</letterLabel>
         <letterText>A large wildfire has broken out nearby and is now spreading to your location.</letterText>

@@ -8,11 +8,9 @@ namespace SeasonalWeather
     {
         private int duration;
 
-        protected override bool CanFireNowSub(IIncidentTarget target)
-        {
-            Map map = (Map)target;
-            return SeasonalWeatherMod.settings.enableEarthquakes && !map.gameConditionManager.ConditionIsActive(GameConditionDefOf.Earthquake);
-        }
+        protected override bool CanFireNowSub(IncidentParms parms) => 
+            SeasonalWeatherMod.settings.enableEarthquakes 
+            && !((Map)parms.target).gameConditionManager.ConditionIsActive(GameConditionDefOf.Earthquake);
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
@@ -27,10 +25,7 @@ namespace SeasonalWeather
         }
 
         // multiply duration by magnitude
-        public void GetDuration(float magnitude)
-        {
-            this.duration = Mathf.CeilToInt(this.def.GetDuration() * magnitude);
-        }
+        public void GetDuration(float magnitude) => this.duration = Mathf.CeilToInt(this.def.GetDuration() * magnitude);
 
     }
 
@@ -38,11 +33,9 @@ namespace SeasonalWeather
     {
         private int duration;
 
-        protected override bool CanFireNowSub(IIncidentTarget target)
-        {
-            Map map = (Map)target;
-            return SeasonalWeatherMod.settings.enableWildfires && !map.gameConditionManager.ConditionIsActive(GameConditionDefOf.Wildfire);
-        }
+        protected override bool CanFireNowSub(IncidentParms parms) => 
+            SeasonalWeatherMod.settings.enableWildfires 
+            && !((Map)parms.target).gameConditionManager.ConditionIsActive(GameConditionDefOf.Wildfire);
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {

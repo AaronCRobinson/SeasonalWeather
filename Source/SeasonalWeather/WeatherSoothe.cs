@@ -33,7 +33,7 @@ namespace SeasonalWeather
         public static void StartNextWeatherPostfix()
         {
             // NOTE: there should be a better home for this code...
-            Map map = Find.VisibleMap;
+            Map map = Find.CurrentMap;
             WeatherDef curWeather = map.weatherManager.curWeather;
             if (curWeather.favorability == Favorability.VeryGood)
             {
@@ -42,7 +42,7 @@ namespace SeasonalWeather
                 WeatherConditionDef def = DefDatabase<WeatherConditionDef>.GetNamed(curWeather.defName);
                 GameCondition_WeatherEmanation gameCondition_WeatherEmanation = (GameCondition_WeatherEmanation)GameConditionMaker.MakeCondition(def, Traverse.Create(map.weatherDecider).Field("curWeatherDuration").GetValue<int>(), 0);
                 gameCondition_WeatherEmanation.weatherDroneLevel = def.weatherDroneLevel;
-                Find.VisibleMap.gameConditionManager.RegisterCondition(gameCondition_WeatherEmanation);
+                Find.CurrentMap.gameConditionManager.RegisterCondition(gameCondition_WeatherEmanation);
                 Find.LetterStack.ReceiveLetter(def.label, def.description, LetterDefOf.PositiveEvent, null);
             }
         }

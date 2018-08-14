@@ -12,8 +12,8 @@ namespace SeasonalWeather
         static float noise;
 
         private float time; // avoiding int to save from casting
-        private float magnitude;
-        private float xScale = 2.0f;
+        private readonly float magnitude;
+        private readonly float xScale = 2.0f;
         private IntVec3 curPos;
         private Rot4 direction;
         private bool expired = false;
@@ -113,8 +113,8 @@ namespace SeasonalWeather
 
             foreach (Pawn pawn in things.OfType<Pawn>())
             {
-                if (roofCollapsed) HediffGiveUtility.TryApply(pawn, HediffDefOf.Shredded, null, true, 3, null);
-                else HediffGiveUtility.TryApply(pawn, HediffDefOf.Shredded, null, true, 1, null);
+                if (roofCollapsed) HediffGiverUtility.TryApply(pawn, HediffDefOf.Shredded, null, true, 3, null);
+                else HediffGiverUtility.TryApply(pawn, HediffDefOf.Shredded, null, true, 1, null);
             }
 
             // TODO: consider type of roof in the drop.
@@ -125,7 +125,7 @@ namespace SeasonalWeather
             }
 
             this.map.terrainGrid.RemoveTopLayer(cell, false);
-            FilthMaker.MakeFilth(cell, this.map, ThingDefOf.RockRubble, 1);
+            FilthMaker.MakeFilth(cell, this.map, ThingDefOf.Filth_RubbleRock, 1);
         }
 
     }

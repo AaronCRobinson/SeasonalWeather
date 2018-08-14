@@ -35,9 +35,9 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\SeasonalWeather\Assemblies\0Harmony.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="0Harmony, Version=1.0.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="1SettingsHelper">
       <HintPath>..\..\..\SettingsHelper\Assemblies\1SettingsHelper.dll</HintPath>
