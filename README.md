@@ -1,4 +1,4 @@
-# SeasonalWeather [![RimWorld Alpha 18](https://img.shields.io/badge/RimWorld-Alpha%2018-brightgreen.svg)](http://rimworldgame.com/)
+# SeasonalWeather [![RimWorld Alpha 18](https://img.shields.io/badge/RimWorld-Beta%2018-brightgreen.svg)](http://rimworldgame.com/)
 
 Extends weather to change based on season. Please comment and let me know any feedback about seasonal settings or potential related features.
 
@@ -28,9 +28,10 @@ Extends weather to change based on season. Please comment and let me know any fe
 HammerheadCow/IgnisGlacies for Windy, Cloudy, and FogSnow weather.
 
 Special thanks to Pardeike's amazing non-destructive patching library, Harmony.
+
 <p align="center">
   <a href="https://github.com/pardeike/Harmony">
-    <img src="https://s24.postimg.org/58bl1rz39/logo.png" alt="Harmony" />
+    <img src="https://raw.githubusercontent.com/pardeike/Harmony/master/HarmonyLogo.png" alt="Harmony" width="128" />
   </a>
 </p>
 
