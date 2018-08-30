@@ -66,21 +66,24 @@ namespace SeasonalWeather
         public static void CheckBaseWeatherCommonalities(DateNotifier __instance)
         {
             Map map = (Map)MI_FindPlayerHomeWithMinTimezone.Invoke(__instance, new object[] { });
-            SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
-            if (ext != null)
+            if (map != null)
             {
-                Season season = map.GetSeason();
-                Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
-                if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
+                SeasonalWeatherExtension ext = map.Biome.GetModExtension<SeasonalWeatherExtension>();
+                if (ext != null)
                 {
-                    Log.Message("SeasonalWeather: season changed");
-                    ext.AdjustBaseWeatherCommonalities(map, season);
+                    Season season = map.GetSeason();
+                    Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
+                    if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
+                    {
+                        Log.Message("SeasonalWeather: season changed");
+                        ext.AdjustBaseWeatherCommonalities(map, season);
+                    }
                 }
+                else
+                    LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.", 725491);
             }
             else
-            {
-                LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.", 725491);
-            }
+                LogUtility.MessageOnce("No map found to check base weather commonalities? NomadsLand?", 8720412);
         }
 
         private static Season GetSeason(this Map map)
