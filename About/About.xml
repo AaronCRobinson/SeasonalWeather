@@ -3,7 +3,7 @@
 <name>Seasonal Weather</name>
 <author>Why_is_that</author>
 <url>https://github.com/AaronCRobinson/SeasonalWeather</url>
-<targetVersion>0.19.0</targetVersion>
+<targetVersion>1.0.0</targetVersion>
 <description><![CDATA[<b>Seasonal Weather</b>
 Extends weather to change based on season. Please comment and let me know any feedback about seasonal settings or potential related features.
 
