@@ -18,7 +18,7 @@ namespace SeasonalWeather
             float points = parms.points;
             float richterMagnitude = EarthquakeHelper.GetMagnitudeWithRand(points);
             GetDuration(richterMagnitude);
-            GameCondition_Earthquake gameCondition_Earthquake = (GameCondition_Earthquake)GameConditionMaker.MakeCondition(GameConditionDefOf.Earthquake, this.duration, 0);
+            GameCondition_Earthquake gameCondition_Earthquake = (GameCondition_Earthquake)GameConditionMaker.MakeCondition(GameConditionDefOf.Earthquake, this.duration);
             gameCondition_Earthquake.Magnitude = richterMagnitude;
             map.gameConditionManager.RegisterCondition(gameCondition_Earthquake);
             return true;
@@ -42,7 +42,7 @@ namespace SeasonalWeather
             Map map = (Map)parms.target;
             //float points = parms.points;
             this.duration = this.def.GetDuration();
-            GameCondition_Wildfire gameCondition_Wildfire = (GameCondition_Wildfire)GameConditionMaker.MakeCondition(GameConditionDefOf.Wildfire, this.duration, 0);
+            GameCondition_Wildfire gameCondition_Wildfire = (GameCondition_Wildfire)GameConditionMaker.MakeCondition(GameConditionDefOf.Wildfire, this.duration);
             map.gameConditionManager.RegisterCondition(gameCondition_Wildfire);
             return true;
         }

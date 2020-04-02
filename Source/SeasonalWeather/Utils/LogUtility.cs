@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using Verse;
-using Harmony;
+using HarmonyLib;
 
 namespace SeasonalWeather.Utils
 {

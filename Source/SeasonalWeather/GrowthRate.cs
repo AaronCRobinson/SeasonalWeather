@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -9,7 +9,7 @@ namespace SeasonalWeather
     {
         static GrowthRatePatches()
         {
-            HarmonyInstance harmony = HarmonyInstance.Create("rimworld.whyisthat.seasonalweather.growthrate");
+            Harmony harmony = new Harmony("rimworld.whyisthat.seasonalweather.growthrate");
             harmony.Patch(AccessTools.Property(typeof(Plant), nameof(Plant.GrowthRate)).GetGetMethod(), null, new HarmonyMethod(typeof(GrowthRatePatches), nameof(GrowRateFactor_Rain)));
         }
 

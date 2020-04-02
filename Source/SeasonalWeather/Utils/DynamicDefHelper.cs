@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Verse;
-using Harmony;
+using HarmonyLib;
 
 // NOTE: no longer used but worth keeping around.
 namespace SeasonalWeather.Utils

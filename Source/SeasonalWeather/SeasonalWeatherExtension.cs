@@ -2,7 +2,7 @@
 using System.Reflection;
 using Verse;
 using RimWorld;
-using Harmony;
+using HarmonyLib;
 
 using SeasonalWeather.Utils;
 
@@ -48,7 +48,7 @@ namespace SeasonalWeather
 
         static SeasonalWeatherExtensionPatches()
         {
-            HarmonyInstance harmony = HarmonyInstance.Create("rimworld.whyisthat.seasonalweather.seasonalweatherextension");
+            Harmony harmony = new Harmony("rimworld.whyisthat.seasonalweather.seasonalweatherextension");
 
             harmony.Patch(AccessTools.Method(typeof(GameComponentUtility), nameof(GameComponentUtility.FinalizeInit)), null, new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(FinalizeInit)));
             harmony.Patch(AccessTools.Method(typeof(DateNotifier), nameof(DateNotifier.DateNotifierTick)), new HarmonyMethod(typeof(SeasonalWeatherExtensionPatches), nameof(DateNotifierTickPrefix)), null);

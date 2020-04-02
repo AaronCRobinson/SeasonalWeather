@@ -125,7 +125,7 @@ namespace SeasonalWeather
             }
 
             this.map.terrainGrid.RemoveTopLayer(cell, false);
-            FilthMaker.MakeFilth(cell, this.map, ThingDefOf.Filth_RubbleRock, 1);
+            FilthMaker.TryMakeFilth(cell, this.map, ThingDefOf.Filth_RubbleRock, 1);
         }
 
     }
