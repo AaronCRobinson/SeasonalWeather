@@ -2,9 +2,9 @@
 using System.Reflection;
 using Verse;
 using RimWorld;
-using HarmonyLib;
 
 using SeasonalWeather.Utils;
+using HarmonyLib;
 
 namespace SeasonalWeather
 {
@@ -75,7 +75,9 @@ namespace SeasonalWeather
                     Season lastSeason = (Season)FI_lastSeason.GetValue(__instance);
                     if (season != lastSeason && (lastSeason == Season.Undefined || season != lastSeason.GetPreviousSeason()))
                     {
+#if DEBUG
                         Log.Message("SeasonalWeather: season changed");
+#endif
                         ext.AdjustBaseWeatherCommonalities(map, season);
                     }
                 }
@@ -83,7 +85,7 @@ namespace SeasonalWeather
                     LogUtility.MessageOnce("Custom biome does not have Seasonal Weather data.", 725491);
             }
             else
-                LogUtility.MessageOnce("No map found to check base weather commonalities? NomadsLand?", 8720412);
+                LogUtility.MessageOnce("No map found to check base weather commonalities.", 8720412); // NomadsLand mod
         }
 
         private static Season GetSeason(this Map map)

@@ -22,11 +22,6 @@ namespace SeasonalWeather
         {
             Harmony harmony = new Harmony("rimworld.whyisthat.seasonalweather.weathersoothe");
             harmony.Patch(AccessTools.Method(typeof(WeatherDecider), nameof(WeatherDecider.StartNextWeather)), null, new HarmonyMethod(typeof(WeatherSoothe), nameof(StartNextWeatherPostfix)));
-
-            // NOTE: why am I patching this here?
-#if DEBUG
-            harmony.Patch(AccessTools.Method(typeof(WeatherDebugActionFix), nameof(WeatherDebugActionFix.Postfix)), null, new HarmonyMethod(typeof(WeatherSoothe), nameof(StartNextWeatherPostfix)));
-#endif
         }
 
         // NOTE: avoiding use of instance here to add debug compatibility.

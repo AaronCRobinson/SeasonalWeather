@@ -88,7 +88,9 @@ namespace SeasonalWeather
             base.Init();
             IntRange range = new IntRange((int)(base.SingleMap.Size.x * 0.23f), (int)(base.SingleMap.Size.x * 0.4f));
             this.fires = range.RandomInRange;
+#if DEBUG
             Log.Message($"{this.fires}");
+#endif
             // how to find out if this side is a mountain face?
             this.direction = Rot4.Random;
         }
